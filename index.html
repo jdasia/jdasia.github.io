@@ -1,0 +1,1662 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>51爆料大赛 - 官方视频社区,原创爆料内容平台</title>
+<meta name="description" content="51爆料大赛官方网站，是聚焦真实爆料与原创影像的垂直视频社区，汇聚创作者、企业与行业观察者，持续输出高清精品内容与多维赛事动态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1a2b'/%3E%3Cpath d='M18 44 L32 16 L46 44 Z' fill='none' stroke='%23ffc233' stroke-width='4'/%3E%3Ccircle cx='32' cy='36' r='5' fill='%23ffc233'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --yb-ink:#0f1a2b;
+    --yb-ink-2:#16243a;
+    --yb-ink-3:#1e304d;
+    --yb-line:rgba(15,26,43,.12);
+    --yb-line-soft:rgba(15,26,43,.07);
+    --yb-paper:#f5f7fa;
+    --yb-card:#ffffff;
+    --yb-amber:#ffc233;
+    --yb-amber-deep:#e8a400;
+    --yb-cyan:#4fd1c5;
+    --yb-text:#1b2738;
+    --yb-muted:#5c6b7f;
+    --yb-radius:16px;
+    --yb-shadow:0 12px 34px rgba(15,26,43,.10);
+    --yb-head-h:118px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:var(--yb-head-h);}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;
+    color:var(--yb-text);
+    background:var(--yb-paper);
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700;letter-spacing:.2px;}
+  p{margin:0;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  .yb-wrap{width:min(1200px,92%);margin:0 auto;}
+  .yb-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+
+  /* ============ 吸顶：公告条 + 页头 ============ */
+  .yb-sticky-top{
+    position:sticky;top:0;z-index:60;
+    box-shadow:0 6px 20px rgba(15,26,43,.08);
+  }
+  .yb-notice-bar{
+    background:linear-gradient(90deg,var(--yb-ink) 0%,var(--yb-ink-3) 62%,#254468 100%);
+    color:#e7eef8;font-size:13.5px;line-height:1.5;
+    padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .yb-notice-bar .yb-wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+  .yb-notice-tag{
+    flex:0 0 auto;background:var(--yb-amber);color:var(--yb-ink);
+    font-weight:700;font-size:12px;padding:2px 10px;border-radius:999px;letter-spacing:.5px;
+  }
+  .yb-notice-track{flex:1 1 260px;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+  .yb-notice-track strong{color:var(--yb-amber);font-weight:700;}
+  .yb-notice-more{flex:0 0 auto;color:var(--yb-cyan);font-size:13px;font-weight:600;}
+  .yb-notice-more:hover{text-decoration:underline;}
+
+  .yb-header{background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--yb-line);}
+  .yb-header .yb-wrap{display:flex;align-items:center;gap:18px;height:78px;}
+  .yb-brand{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+  .yb-brand-mark{
+    width:42px;height:42px;border-radius:12px;background:var(--yb-ink);
+    display:grid;place-items:center;flex:0 0 auto;
+  }
+  .yb-brand-mark svg{width:26px;height:26px;}
+  .yb-brand-text{display:flex;flex-direction:column;line-height:1.15;}
+  .yb-brand-name{font-size:18px;font-weight:800;color:var(--yb-ink);letter-spacing:.4px;}
+  .yb-brand-sub{font-size:11.5px;color:var(--yb-muted);letter-spacing:1.4px;}
+  .yb-nav{display:flex;gap:2px;margin-left:8px;flex:1 1 auto;flex-wrap:wrap;}
+  .yb-nav a{
+    padding:8px 13px;border-radius:9px;font-size:14.5px;font-weight:600;color:#28394f;
+    transition:background .18s ease,color .18s ease;
+  }
+  .yb-nav a:hover,.yb-nav a:focus-visible{background:#eef2f8;color:var(--yb-ink);outline:none;}
+  .yb-head-tools{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+  .yb-search{position:relative;display:flex;align-items:center;}
+  .yb-search input{
+    width:206px;padding:9px 14px 9px 34px;border-radius:999px;border:1px solid var(--yb-line);
+    background:#f3f6fa;font-size:13.5px;color:var(--yb-text);transition:border-color .18s,width .2s;
+  }
+  .yb-search input:focus{outline:none;border-color:var(--yb-amber-deep);background:#fff;width:238px;}
+  .yb-search-ico{position:absolute;left:12px;width:15px;height:15px;opacity:.5;}
+  .yb-search-hint{
+    position:absolute;top:calc(100% + 8px);left:0;right:0;min-width:224px;
+    background:#fff;border:1px solid var(--yb-line);border-radius:12px;box-shadow:var(--yb-shadow);
+    padding:8px;font-size:13px;color:var(--yb-muted);display:none;z-index:70;
+  }
+  .yb-search-hint.yb-show{display:block;}
+  .yb-search-hint b{color:var(--yb-amber-deep);}
+  .yb-search-hint em{font-style:normal;color:var(--yb-ink);font-weight:600;}
+  .yb-btn-primary{
+    background:var(--yb-amber);color:var(--yb-ink);font-weight:700;font-size:14px;
+    padding:10px 18px;border-radius:999px;transition:transform .16s,box-shadow .16s,background .16s;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .yb-btn-primary:hover{background:#ffce55;transform:translateY(-1px);box-shadow:0 8px 18px rgba(232,164,0,.32);}
+  .yb-burger{display:none;width:42px;height:42px;border-radius:10px;background:#eef2f8;place-items:center;flex:0 0 auto;}
+  .yb-burger span{display:block;width:18px;height:2px;background:var(--yb-ink);position:relative;}
+  .yb-burger span::before,.yb-burger span::after{
+    content:"";position:absolute;left:0;width:18px;height:2px;background:var(--yb-ink);
+  }
+  .yb-burger span::before{top:-6px;}
+  .yb-burger span::after{top:6px;}
+
+  /* ============ 首屏 ============ */
+  .yb-hero{background:
+      radial-gradient(1100px 420px at 88% -12%,rgba(79,209,197,.20),transparent 62%),
+      radial-gradient(880px 420px at 6% 0%,rgba(255,194,51,.20),transparent 60%),
+      linear-gradient(180deg,#0f1a2b 0%,#16243a 62%,#1c2c46 100%);
+    color:#eef4fc;padding:54px 0 62px;position:relative;overflow:hidden;}
+  .yb-hero::after{
+    content:"";position:absolute;inset:auto -10% -46% 40%;height:340px;
+    background:radial-gradient(closest-side,rgba(79,209,197,.16),transparent);
+    pointer-events:none;
+  }
+  .yb-hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:44px;align-items:center;position:relative;z-index:1;}
+  .yb-hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:1.6px;
+    color:var(--yb-amber);font-weight:700;text-transform:uppercase;margin-bottom:18px;
+  }
+  .yb-hero-eyebrow::before{content:"";width:26px;height:2px;background:var(--yb-amber);}
+  .yb-hero h1{
+    font-size:clamp(34px,4.4vw,56px);letter-spacing:1px;line-height:1.16;margin-bottom:18px;
+    color:#fff;
+  }
+  .yb-hero h1 .yb-accent{color:var(--yb-amber);}
+  .yb-hero-lead{font-size:16.5px;color:#c3d2e4;max-width:33em;margin-bottom:14px;}
+  .yb-hero-desc{
+    font-size:14.5px;color:#9fb2c9;max-width:36em;border-left:3px solid rgba(255,194,51,.55);
+    padding-left:14px;margin-bottom:24px;
+  }
+  .yb-hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px;}
+  .yb-btn-ghost{
+    border:1px solid rgba(255,255,255,.28);color:#e9f1fb;border-radius:999px;
+    padding:10px 20px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;
+    transition:background .18s,border-color .18s;
+  }
+  .yb-btn-ghost:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.5);}
+  .yb-hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:540px;}
+  .yb-stat{
+    background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.11);
+    border-radius:13px;padding:13px 14px;
+  }
+  .yb-stat-val{font-size:24px;font-weight:800;color:var(--yb-amber);letter-spacing:.5px;line-height:1.2;}
+  .yb-stat-val small{font-size:13px;font-weight:600;color:var(--yb-amber);margin-left:2px;}
+  .yb-stat-label{font-size:12.5px;color:#a9bbd1;margin-top:3px;}
+  .yb-hero-visual{position:relative;}
+  .yb-hero-visual figure{margin:0;border-radius:20px;overflow:hidden;box-shadow:0 26px 60px rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.14);}
+  .yb-hero-visual img{width:100%;aspect-ratio:16/11;object-fit:cover;}
+  .yb-hero-live{
+    position:absolute;left:-14px;top:20px;background:#fff;color:var(--yb-ink);
+    border-radius:12px;padding:9px 14px;display:flex;align-items:center;gap:9px;
+    box-shadow:0 14px 30px rgba(0,0,0,.3);font-size:12.5px;font-weight:700;
+  }
+  .yb-dot{width:8px;height:8px;border-radius:50%;background:#ef4b5a;box-shadow:0 0 0 4px rgba(239,75,90,.18);}
+  .yb-hero-badge{
+    position:absolute;right:-10px;bottom:22px;background:rgba(15,26,43,.92);color:#dbe7f5;
+    border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 16px;font-size:12.5px;
+    line-height:1.6;max-width:210px;backdrop-filter:blur(6px);
+  }
+  .yb-hero-badge b{color:var(--yb-cyan);}
+  .yb-hero-badge .yb-badge-line{display:flex;justify-content:space-between;gap:10px;}
+
+  /* ============ 通用区块 ============ */
+  section{yield:auto;}
+  .yb-section{padding:66px 0;}
+  .yb-section-alt{background:#fff;border-top:1px solid var(--yb-line-soft);border-bottom:1px solid var(--yb-line-soft);}
+  .yb-sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:32px;flex-wrap:wrap;}
+  .yb-sec-kicker{
+    font-size:12.5px;letter-spacing:2px;font-weight:700;color:var(--yb-amber-deep);
+    text-transform:uppercase;margin-bottom:8px;
+  }
+  .yb-sec-title{font-size:clamp(24px,2.6vw,32px);color:var(--yb-ink);}
+  .yb-sec-title .yb-underline{
+    background:linear-gradient(transparent 66%,rgba(255,194,51,.55) 66%);
+  }
+  .yb-sec-desc{font-size:14.5px;color:var(--yb-muted);max-width:52ch;margin-top:8px;}
+  .yb-sec-link{font-size:14px;font-weight:700;color:var(--yb-ink);border-bottom:2px solid var(--yb-amber);padding-bottom:2px;white-space:nowrap;}
+
+  /* 焦点大卡 + 列表 */
+  .yb-focus-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:28px;align-items:start;}
+  .yb-video-card{
+    background:var(--yb-card);border-radius:var(--yb-radius);overflow:hidden;
+    border:1px solid var(--yb-line-soft);box-shadow:0 4px 18px rgba(15,26,43,.06);
+    transition:transform .2s ease,box-shadow .2s ease;display:flex;flex-direction:column;
+  }
+  .yb-video-card:hover{transform:translateY(-4px);box-shadow:var(--yb-shadow);}
+  .yb-video-thumb{position:relative;background:#dde5ee;}
+  .yb-video-thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;}
+  .yb-play{
+    position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(15,26,43,.02),rgba(15,26,43,.42));
+    opacity:0;transition:opacity .2s ease;
+  }
+  .yb-video-card:hover .yb-play{opacity:1;}
+  .yb-play span{
+    width:56px;height:56px;border-radius:50%;background:rgba(255,194,51,.95);
+    display:grid;place-items:center;box-shadow:0 10px 24px rgba(0,0,0,.3);
+  }
+  .yb-play span::after{
+    content:"";width:0;height:0;border-left:16px solid var(--yb-ink);
+    border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px;
+  }
+  .yb-thumb-tag{
+    position:absolute;left:12px;top:12px;background:rgba(15,26,43,.86);color:#fff;
+    font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.4px;
+  }
+  .yb-thumb-time{
+    position:absolute;right:12px;bottom:12px;background:rgba(15,26,43,.82);color:#e6effa;
+    font-size:11.5px;padding:2px 8px;border-radius:6px;font-variant-numeric:tabular-nums;
+  }
+  .yb-video-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:9px;flex:1 1 auto;}
+  .yb-video-title{font-size:19px;color:var(--yb-ink);line-height:1.45;}
+  .yb-video-sum{font-size:14px;color:var(--yb-muted);}
+  .yb-tagrow{display:flex;flex-wrap:wrap;gap:7px;}
+  .yb-tag{
+    font-size:11.5px;color:#38506e;background:#eef3f9;border-radius:999px;padding:3px 10px;font-weight:600;
+  }
+  .yb-tag.yb-tag-amber{background:rgba(255,194,51,.22);color:#8a6400;}
+
+  .yb-meta-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--yb-muted);margin-top:2px;}
+  .yb-avatar{
+    width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+    font-size:12px;font-weight:800;color:#fff;flex:0 0 auto;
+  }
+  .yb-avatar-lg{width:46px;height:46px;font-size:16px;}
+  .yb-author-inline{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:#2b3d55;}
+  .yb-dot-sep{width:3px;height:3px;border-radius:50%;background:#b7c3d2;}
+
+  .yb-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px;}
+  .yb-action{
+    display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;
+    color:#41546d;background:#f2f5f9;border-radius:999px;padding:6px 12px;
+    transition:background .16s,color .16s,transform .12s;border:1px solid transparent;
+  }
+  .yb-action:hover{background:#e8eef6;}
+  .yb-action:active{transform:scale(.96);}
+  .yb-action svg{width:14px;height:14px;flex:0 0 auto;}
+  .yb-action.yb-liked{background:rgba(239,75,90,.13);color:#c9333f;}
+  .yb-action.yb-faved{background:rgba(255,194,51,.24);color:#8a6400;}
+  .yb-action.yb-copied{background:rgba(79,209,197,.20);color:#0d7a70;}
+  .yb-num{font-variant-numeric:tabular-nums;}
+
+  /* 文字视频列表 */
+  .yb-video-list{display:flex;flex-direction:column;gap:12px;}
+  .yb-vitem{
+    background:var(--yb-card);border:1px solid var(--yb-line-soft);border-radius:14px;
+    padding:16px 18px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;
+    transition:transform .18s,box-shadow .18s,border-color .18s;
+  }
+  .yb-vitem:hover{transform:translateX(3px);box-shadow:0 8px 22px rgba(15,26,43,.09);border-color:rgba(255,194,51,.5);}
+  .yb-vitem-title{font-size:15.5px;font-weight:700;color:var(--yb-ink);margin-bottom:4px;line-height:1.45;}
+  .yb-vitem-desc{font-size:13px;color:var(--yb-muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  .yb-vitem-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:7px;font-size:12px;color:#6e7e93;}
+  .yb-vitem-rank{
+    font-size:20px;font-weight:800;color:#cfd9e5;font-variant-numeric:tabular-nums;line-height:1;
+    flex:0 0 auto;min-width:34px;text-align:center;
+  }
+  .yb-vitem-rank.yb-rank-top{color:var(--yb-amber-deep);}
+
+  /* 专题 */
+  .yb-topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:22px;}
+  .yb-topic{
+    background:#fff;border:1px solid var(--yb-line-soft);border-radius:var(--yb-radius);
+    overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;
+  }
+  .yb-topic:hover{transform:translateY(-4px);box-shadow:var(--yb-shadow);}
+  .yb-topic img{width:100%;aspect-ratio:16/9;object-fit:cover;}
+  .yb-topic-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1 1 auto;}
+  .yb-topic-status{
+    display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;
+    color:#0d7a70;background:rgba(79,209,197,.16);border-radius:999px;padding:3px 10px;align-self:flex-start;
+  }
+  .yb-topic-status.yb-status-warm{color:#8a6400;background:rgba(255,194,51,.2);}
+  .yb-topic-title{font-size:17px;color:var(--yb-ink);}
+  .yb-topic-desc{font-size:13.5px;color:var(--yb-muted);}
+  .yb-topic-items{border-top:1px dashed var(--yb-line);padding-top:10px;display:flex;flex-direction:column;gap:7px;}
+  .yb-topic-items li{font-size:13px;color:#3c4f68;display:flex;gap:8px;align-items:flex-start;}
+  .yb-topic-items li::before{content:"›";color:var(--yb-amber-deep);font-weight:800;line-height:1.4;}
+
+  /* 作者矩阵：双列简介 */
+  .yb-author-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px;}
+  .yb-author-card{
+    background:#fff;border:1px solid var(--yb-line-soft);border-radius:var(--yb-radius);
+    padding:20px;display:flex;gap:16px;align-items:flex-start;transition:box-shadow .2s,border-color .2s;
+  }
+  .yb-author-card:hover{box-shadow:var(--yb-shadow);border-color:rgba(255,194,51,.55);}
+  .yb-author-main{min-width:0;flex:1 1 auto;}
+  .yb-author-name{font-size:16.5px;font-weight:800;color:var(--yb-ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .yb-author-badge{font-size:10.5px;font-weight:700;color:var(--yb-ink);background:var(--yb-amber);border-radius:5px;padding:1px 7px;}
+  .yb-author-field{font-size:12.5px;color:var(--yb-amber-deep);font-weight:700;margin:4px 0 6px;}
+  .yb-author-bio{font-size:13px;color:var(--yb-muted);line-height:1.7;}
+  .yb-author-stats{display:flex;gap:14px;margin-top:10px;font-size:12px;color:#4b5f79;font-weight:600;flex-wrap:wrap;}
+  .yb-author-stats b{color:var(--yb-ink);font-size:13.5px;}
+  .yb-author-more{margin-top:10px;font-size:12.5px;font-weight:700;color:var(--yb-ink);border-bottom:2px solid var(--yb-amber);padding-bottom:1px;}
+
+  /* 评论：双列短评 */
+  .yb-comment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px;}
+  .yb-comment{
+    background:#fff;border:1px solid var(--yb-line-soft);border-radius:var(--yb-radius);
+    padding:18px 20px;display:flex;flex-direction:column;gap:10px;
+  }
+  .yb-comment:nth-child(3n+2){background:#fbfcfe;}
+  .yb-comment-head{display:flex;align-items:center;gap:10px;}
+  .yb-comment-name{font-size:13.5px;font-weight:700;color:var(--yb-ink);}
+  .yb-comment-time{font-size:11.5px;color:#8b9aad;margin-left:auto;}
+  .yb-comment-text{font-size:13.5px;color:#35475f;line-height:1.75;}
+  .yb-stars{color:var(--yb-amber-deep);font-size:12px;letter-spacing:1px;}
+  .yb-comment-ref{
+    font-size:12.5px;color:#445a75;background:#f1f5fa;border-left:3px solid var(--yb-cyan);
+    padding:8px 12px;border-radius:0 8px 8px 0;
+  }
+
+  /* 数据概览 / 榜单 */
+  .yb-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;}
+  .yb-board-col{background:#fff;border:1px solid var(--yb-line-soft);border-radius:var(--yb-radius);padding:20px 20px 14px;}
+  .yb-board-head{display:flex;align-items:center;gap:9px;margin-bottom:14px;}
+  .yb-board-head h3{font-size:16px;color:var(--yb-ink);}
+  .yb-board-pill{font-size:10.5px;font-weight:800;color:var(--yb-ink);background:var(--yb-amber);border-radius:999px;padding:2px 8px;letter-spacing:.5px;}
+  .yb-board-list{display:flex;flex-direction:column;gap:2px;}
+  .yb-board-row{
+    display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:10px;align-items:center;
+    padding:9px 4px;border-bottom:1px dashed var(--yb-line-soft);font-size:13.5px;
+  }
+  .yb-board-row:last-child{border-bottom:none;}
+  .yb-board-row .yb-br-idx{font-weight:800;color:#b7c3d2;font-variant-numeric:tabular-nums;}
+  .yb-board-row:nth-child(-n+3) .yb-br-idx{color:var(--yb-amber-deep);}
+  .yb-board-row .yb-br-name{color:#2b3d55;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .yb-board-row .yb-br-val{color:#6e7e93;font-size:12px;font-variant-numeric:tabular-nums;}
+
+  /* 品牌故事 */
+  .yb-story-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:38px;align-items:center;}
+  .yb-story-figure{margin:0;border-radius:18px;overflow:hidden;box-shadow:var(--yb-shadow);border:1px solid var(--yb-line-soft);}
+  .yb-story-figure img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .yb-story-text p{font-size:14.5px;color:#3d5069;margin-bottom:14px;}
+  .yb-story-quote{
+    border-left:4px solid var(--yb-amber);padding:4px 0 4px 16px;font-size:15px;color:var(--yb-ink);
+    font-weight:600;margin:18px 0;line-height:1.7;
+  }
+  .yb-mini-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px;}
+  .yb-mini-stat{background:#f3f6fa;border-radius:12px;padding:12px 14px;border:1px solid var(--yb-line-soft);}
+  .yb-mini-stat b{display:block;font-size:20px;color:var(--yb-ink);line-height:1.2;}
+  .yb-mini-stat span{font-size:12px;color:var(--yb-muted);}
+
+  /* 关键词解析长文 */
+  .yb-article{max-width:900px;}
+  .yb-article p{font-size:15px;color:#3a4c64;margin-bottom:14px;}
+  .yb-article h3{font-size:18.5px;color:var(--yb-ink);margin:24px 0 10px;}
+  .yb-article h3:first-child{margin-top:0;}
+  .yb-article-callout{
+    background:linear-gradient(135deg,rgba(255,194,51,.16),rgba(79,209,197,.13));
+    border:1px solid var(--yb-line-soft);border-radius:14px;padding:16px 20px;margin:18px 0;
+    font-size:14px;color:#2f435c;
+  }
+
+  /* 企业动态 */
+  .yb-news-list{display:flex;flex-direction:column;gap:0;}
+  .yb-news-item{
+    display:grid;grid-template-columns:104px minmax(0,1fr) auto;gap:16px;align-items:center;
+    padding:16px 4px;border-bottom:1px solid var(--yb-line-soft);transition:background .16s;
+  }
+  .yb-news-item:hover{background:rgba(255,194,51,.06);}
+  .yb-news-date{
+    font-size:12.5px;font-weight:700;color:var(--yb-amber-deep);font-variant-numeric:tabular-nums;
+    background:rgba(255,194,51,.14);border-radius:8px;padding:6px 8px;text-align:center;
+  }
+  .yb-news-title{font-size:14.5px;font-weight:700;color:var(--yb-ink);}
+  .yb-news-desc{font-size:12.5px;color:var(--yb-muted);margin-top:3px;}
+  .yb-news-type{font-size:11.5px;font-weight:700;color:#445a75;background:#eef3f9;border-radius:999px;padding:3px 10px;white-space:nowrap;}
+
+  /* 合作墙 */
+  .yb-partners{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:14px;}
+  .yb-partner{
+    background:#fff;border:1px solid var(--yb-line-soft);border-radius:12px;
+    padding:16px 14px;display:flex;align-items:center;gap:10px;transition:border-color .18s,transform .18s;
+  }
+  .yb-partner:hover{border-color:rgba(255,194,51,.6);transform:translateY(-2px);}
+  .yb-partner-mark{
+    width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
+    font-weight:800;font-size:14px;color:#fff;flex:0 0 auto;
+  }
+  .yb-partner-name{font-size:13.5px;font-weight:700;color:#2b3d55;line-height:1.3;}
+  .yb-partner-sub{font-size:11px;color:#8b9aad;}
+
+  /* FAQ */
+  .yb-faq{display:flex;flex-direction:column;gap:10px;max-width:880px;}
+  .yb-faq details{
+    background:#fff;border:1px solid var(--yb-line-soft);border-radius:12px;padding:0 18px;
+    transition:border-color .18s;
+  }
+  .yb-faq details[open]{border-color:rgba(255,194,51,.6);box-shadow:0 6px 20px rgba(15,26,43,.06);}
+  .yb-faq summary{
+    list-style:none;cursor:pointer;padding:15px 30px 15px 0;font-size:14.5px;font-weight:700;color:var(--yb-ink);
+    position:relative;line-height:1.55;
+  }
+  .yb-faq summary::-webkit-details-marker{display:none;}
+  .yb-faq summary::after{
+    content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);
+    font-size:20px;font-weight:400;color:var(--yb-amber-deep);line-height:1;
+  }
+  .yb-faq details[open] summary::after{content:"–";}
+  .yb-faq p{font-size:13.5px;color:var(--yb-muted);padding:0 0 16px;line-height:1.75;}
+
+  /* 页脚 */
+  .yb-footer{background:var(--yb-ink);color:#a9bbd1;padding:56px 0 26px;}
+  .yb-footer-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,.75fr));gap:32px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.10);}
+  .yb-footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .yb-footer-brand .yb-brand-name{color:#fff;font-size:17px;}
+  .yb-footer-brand .yb-brand-sub{color:#7f95af;}
+  .yb-footer p{font-size:13px;color:#93a7be;line-height:1.8;}
+  .yb-footer h4{font-size:13.5px;color:#e6effa;margin-bottom:12px;letter-spacing:.6px;}
+  .yb-footer li{font-size:13px;color:#93a7be;padding:5px 0;}
+  .yb-footer li a:hover{color:var(--yb-amber);}
+  .yb-footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;font-size:12.5px;color:#7f95af;}
+  .yb-footer-bottom .yb-sep{opacity:.4;}
+
+  /* Toast + 弹窗 */
+  .yb-toast{
+    position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);
+    background:rgba(15,26,43,.94);color:#f2f7fd;font-size:13.5px;font-weight:600;
+    padding:11px 20px;border-radius:12px;box-shadow:0 16px 36px rgba(0,0,0,.3);
+    opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;z-index:120;max-width:86vw;
+  }
+  .yb-toast.yb-show{opacity:1;transform:translate(-50%,0);}
+  .yb-modal-mask{
+    position:fixed;inset:0;background:rgba(11,19,31,.6);display:none;place-items:center;z-index:110;
+    padding:20px;backdrop-filter:blur(3px);
+  }
+  .yb-modal-mask.yb-show{display:grid;}
+  .yb-modal{
+    background:#fff;border-radius:18px;max-width:520px;width:100%;max-height:86vh;overflow:auto;
+    padding:26px 26px 22px;box-shadow:0 30px 70px rgba(0,0,0,.35);position:relative;
+  }
+  .yb-modal h3{font-size:19px;color:var(--yb-ink);margin-bottom:8px;}
+  .yb-modal .yb-modal-sub{font-size:13px;color:var(--yb-muted);margin-bottom:16px;}
+  .yb-modal label{display:block;font-size:12.5px;font-weight:700;color:#41546d;margin:12px 0 6px;}
+  .yb-modal input,.yb-modal textarea,.yb-modal select{
+    width:100%;padding:10px 12px;border:1px solid var(--yb-line);border-radius:10px;
+    font-family:inherit;font-size:13.5px;color:var(--yb-text);background:#f7f9fc;
+  }
+  .yb-modal textarea{min-height:96px;resize:vertical;}
+  .yb-modal input:focus,.yb-modal textarea:focus,.yb-modal select:focus{outline:none;border-color:var(--yb-amber-deep);background:#fff;}
+  .yb-modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;}
+  .yb-modal-close{position:absolute;right:14px;top:12px;width:34px;height:34px;border-radius:9px;background:#f1f5fa;color:#5c6b7f;font-size:18px;line-height:1;display:grid;place-items:center;}
+  .yb-modal-close:hover{background:#e6edf6;}
+  .yb-share-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px;}
+  .yb-share-btn{
+    border:1px solid var(--yb-line-soft);border-radius:12px;padding:12px 6px;text-align:center;
+    font-size:12px;font-weight:700;color:#2b3d55;background:#f7f9fc;transition:background .16s,border-color .16s;
+  }
+  .yb-share-btn:hover{background:#fff;border-color:var(--yb-amber-deep);}
+  .yb-share-ico{display:block;font-size:18px;margin-bottom:4px;}
+
+  /* 回顶 */
+  .yb-top-btn{
+    position:fixed;right:22px;bottom:26px;width:46px;height:46px;border-radius:50%;
+    background:var(--yb-ink);color:var(--yb-amber);display:grid;place-items:center;
+    box-shadow:0 12px 26px rgba(15,26,43,.3);opacity:0;pointer-events:none;
+    transition:opacity .22s,transform .22s;z-index:90;font-size:18px;font-weight:800;
+  }
+  .yb-top-btn.yb-show{opacity:1;pointer-events:auto;}
+  .yb-top-btn:hover{transform:translateY(-3px);}
+
+  /* 响应式 */
+  @media (max-width:1040px){
+    .yb-hero-grid{grid-template-columns:1fr;gap:34px;}
+    .yb-focus-grid{grid-template-columns:1fr;}
+    .yb-story-grid{grid-template-columns:1fr;gap:26px;}
+    .yb-footer-grid{grid-template-columns:1fr 1fr;}
+    .yb-nav{display:none;}
+    .yb-search input{width:160px;}
+  }
+  @media (max-width:820px){
+    :root{--yb-head-h:112px;}
+    .yb-header .yb-wrap{height:64px;gap:10px;}
+    .yb-burger{display:grid;}
+    .yb-head-tools .yb-search{display:none;}
+    .yb-nav{
+      display:none;position:absolute;left:0;right:0;top:100%;background:#fff;
+      border-bottom:1px solid var(--yb-line);padding:12px 4% 18px;flex-direction:column;gap:4px;
+      box-shadow:0 18px 30px rgba(15,26,43,.12);
+    }
+    .yb-nav.yb-open{display:flex;}
+    .yb-nav a{padding:11px 12px;font-size:15px;}
+    .yb-header .yb-wrap{position:relative;}
+    .yb-hero{padding:38px 0 46px;}
+    .yb-hero-stats{grid-template-columns:1fr;max-width:none;}
+    .yb-hero-badge{right:0;bottom:12px;max-width:180px;}
+    .yb-hero-live{left:8px;top:12px;}
+    .yb-news-item{grid-template-columns:1fr;gap:8px;}
+    .yb-news-date{justify-self:start;}
+    .yb-section{padding:48px 0;}
+    .yb-mini-stats{grid-template-columns:1fr;}
+    .yb-footer-grid{grid-template-columns:1fr;}
+    .yb-share-row{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ============ S1 公告条 + 页头（吸顶） ============ -->
+<div class="yb-sticky-top">
+  <div class="yb-notice-bar">
+    <div class="yb-wrap">
+      <span class="yb-notice-tag">官方发布</span>
+      <p class="yb-notice-track">
+        <strong>11月18日</strong> 公布「真实力·爆料挑战」第一季入围名单，共 48 位创作者上榜；<strong>11月21日</strong> 新增三项赛事赛道报名入口
+      </p>
+      <a class="yb-notice-more" href="#yb-news">查看更新日志 →</a>
+    </div>
+  </div>
+
+  <header class="yb-header">
+    <div class="yb-wrap">
+      <a class="yb-brand" href="#yb-top" aria-label="51爆料大赛官方网站首页">
+        <span class="yb-brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img" aria-label="51爆料大赛品牌标识">
+            <path d="M14 46 L32 14 L50 46 Z" fill="none" stroke="#ffc233" stroke-width="4" stroke-linejoin="round"/>
+            <circle cx="32" cy="37" r="5.4" fill="#ffc233"/>
+          </svg>
+        </span>
+        <span class="yb-brand-text">
+          <span class="yb-brand-name">51爆料大赛</span>
+          <span class="yb-brand-sub">BAOLIAO VIDEO</span>
+        </span>
+      </a>
+
+      <nav class="yb-nav" id="yb-nav" aria-label="主导航">
+        <a href="#yb-focus">焦点爆料</a>
+        <a href="#yb-videos">视频专区</a>
+        <a href="#yb-topics">专题企划</a>
+        <a href="#yb-authors">创作者</a>
+        <a href="#yb-board">数据榜单</a>
+        <a href="#yb-story">品牌故事</a>
+        <a href="#yb-news">企业动态</a>
+        <a href="#yb-faq">帮助中心</a>
+      </nav>
+
+      <div class="yb-head-tools">
+        <div class="yb-search" role="search">
+          <svg class="yb-search-ico" viewBox="0 0 24 24" fill="none" stroke="#41546d" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.4-3.4"/>
+          </svg>
+          <input type="search" id="yb-search-input" placeholder="搜索爆料、创作者、专题" aria-label="站内搜索">
+          <div class="yb-search-hint" id="yb-search-hint" role="status" aria-live="polite"></div>
+        </div>
+        <button class="yb-btn-primary yb-js-submit" type="button">投稿爆料</button>
+        <button class="yb-burger" id="yb-burger" type="button" aria-label="展开导航菜单" aria-expanded="false" aria-controls="yb-nav">
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="yb-top">
+
+<!-- ============ S2 首屏：左文右侧大图 + 数据条 ============ -->
+<section class="yb-hero" aria-labelledby="yb-hero-title">
+  <div class="yb-wrap">
+    <div class="yb-hero-grid">
+      <div>
+        <p class="yb-hero-eyebrow">官方网站 · 企业级原创视频社区</p>
+        <h1 id="yb-hero-title">51爆料大赛<span class="yb-accent">·</span>让每一次<b class="yb-accent">爆料</b>都有回响</h1>
+        <p class="yb-hero-lead">
+          51爆料大赛官方网站，是聚焦真实爆料与原创影像的垂直视频平台。我们连接创作者、企业与行业观察者，用高清镜头记录现场，用专业结构梳理信息，让值得被看见的内容获得持续的社区回响。
+        </p>
+        <p class="yb-hero-desc" id="yb-about">
+          作为一家持续运营的内容企业，51爆料大赛深耕爆料与影像叙事这一垂直领域：官网提供赛事报名、作品上传与下载、攻略与创意挑战入口，并以严谨的审核与口碑机制保障内容品质。平台内已汇聚数千位原创创作者与多元企业伙伴，形成开放、包容、值得信赖的内容生态。我们坚持用户至上与真实表达，用匠心打磨每一个画面，用陪伴推动创作者长期成长，让精品内容与品牌影响力一同沉淀。
+        </p>
+        <div class="yb-hero-cta">
+          <a class="yb-btn-primary" href="#yb-videos">观看精品内容</a>
+          <button class="yb-btn-ghost yb-js-submit" type="button">报名参赛</button>
+          <a class="yb-btn-ghost" href="#yb-board">查看榜单</a>
+        </div>
+        <div class="yb-hero-stats">
+          <div class="yb-stat">
+            <div class="yb-stat-val" data-yb-count="12800">0<small>+</small></div>
+            <div class="yb-stat-label">原创作品入库</div>
+          </div>
+          <div class="yb-stat">
+            <div class="yb-stat-val" data-yb-count="3260">0<small>+</small></div>
+            <div class="yb-stat-label">签约创作伙伴</div>
+          </div>
+          <div class="yb-stat">
+            <div class="yb-stat-val" data-yb-count="48">0<small>月</small></div>
+            <div class="yb-stat-label">持续运营赛季</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="yb-hero-visual">
+        <figure>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 560'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230f1a2b'/%3E%3Cstop offset='0.55' stop-color='%231e304d'/%3E%3Cstop offset='1' stop-color='%23254468'/%3E%3C/linearGradient%3E%3ClinearGradient id='g2' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23ffc233'/%3E%3Cstop offset='1' stop-color='%234fd1c5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='560' fill='url(%23g1)'/%3E%3Cg opacity='0.5' stroke='%234fd1c5' stroke-width='1.2'%3E%3Cpath d='M0 420 Q200 340 400 400 T800 360'/%3E%3Cpath d='M0 470 Q200 400 400 450 T800 420'/%3E%3Cpath d='M0 500 Q220 450 420 490 T800 470'/%3E%3C/g%3E%3Cg%3E%3Crect x='96' y='120' width='320' height='196' rx='14' fill='%23131f33' stroke='%23ffc233' stroke-width='2'/%3E%3Crect x='118' y='142' width='200' height='12' rx='6' fill='%23ffc233' opacity='0.8'/%3E%3Crect x='118' y='172' width='276' height='8' rx='4' fill='%234fd1c5' opacity='0.55'/%3E%3Crect x='118' y='192' width='240' height='8' rx='4' fill='%234fd1c5' opacity='0.38'/%3E%3Crect x='118' y='240' width='90' height='30' rx='15' fill='url(%23g2)'/%3E%3Ccircle cx='330' cy='270' r='34' fill='none' stroke='%234fd1c5' stroke-width='3'/%3E%3Ccircle cx='330' cy='270' r='9' fill='%23ffc233'/%3E%3C/g%3E%3Cg%3E%3Crect x='470' y='200' width='230' height='130' rx='12' fill='%23ffffff' opacity='0.07' stroke='%23ffffff' stroke-opacity='0.28'/%3E%3Ccircle cx='500' cy='240' r='16' fill='%23ffc233'/%3E%3Crect x='528' y='230' width='120' height='9' rx='4' fill='%23ffffff' opacity='0.7'/%3E%3Crect x='528' y='248' width='86' height='7' rx='3' fill='%23ffffff' opacity='0.4'/%3E%3Crect x='490' y='282' width='186' height='7' rx='3' fill='%234fd1c5' opacity='0.5'/%3E%3Crect x='490' y='300' width='140' height='7' rx='3' fill='%234fd1c5' opacity='0.3'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M430 400 l52 -30 52 30 -52 30 z' fill='%23ffc233' opacity='0.9'/%3E%3Cpath d='M430 400 v34 l52 30 v-34 z' fill='%23e8a400'/%3E%3Cpath d='M534 400 v34 l-52 30 v-34 z' fill='%234fd1c5' opacity='0.7'/%3E%3C/g%3E%3Cg stroke='%23ffc233' stroke-width='2' opacity='0.55'%3E%3Cpath d='M180 430 h110'/%3E%3Cpath d='M180 452 h74'/%3E%3C/g%3E%3Ccircle cx='680' cy='120' r='54' fill='none' stroke='%23ffc233' stroke-width='2' opacity='0.5'/%3E%3Ccircle cx='680' cy='120' r='30' fill='none' stroke='%234fd1c5' stroke-width='2' opacity='0.5'/%3E%3C/svg%3E" alt="51爆料大赛首屏主视觉：爆料作品卡片与数据面板构成的夜色影像墙">
+        </figure>
+        <div class="yb-hero-live"><span class="yb-dot"></span>赛事直播中 · 第 48 赛季</div>
+        <div class="yb-hero-badge">
+          <div class="yb-badge-line"><span>本周新增爆料</span><b>+1,284</b></div>
+          <div class="yb-badge-line"><span>社区互动量</span><b>9.6 万</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S3 焦点内容 ============ -->
+<section class="yb-section" id="yb-focus" aria-labelledby="yb-focus-title">
+  <div class="yb-wrap">
+    <div class="yb-sec-head">
+      <div>
+        <p class="yb-sec-kicker">Focus · 焦点爆料</p>
+        <h2 class="yb-sec-title" id="yb-focus-title">本周<span class="yb-underline">焦点内容</span>与重点推荐</h2>
+        <p class="yb-sec-desc">由编辑部与社区共同选出的高影响力爆料影像，兼顾现场感、信息完整度与叙事品质，呈现 51爆料大赛 的专业选品逻辑。</p>
+      </div>
+      <a class="yb-sec-link" href="#yb-videos">进入视频专区 →</a>
+    </div>
+
+    <div class="yb-focus-grid">
+      <article class="yb-video-card">
+        <div class="yb-video-thumb">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='f1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23254468'/%3E%3Cstop offset='1' stop-color='%230f1a2b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23f1)'/%3E%3Cg opacity='0.85'%3E%3Crect x='70' y='70' width='290' height='190' rx='10' fill='%23ffffff' opacity='0.06' stroke='%23ffc233' stroke-width='2'/%3E%3Ccircle cx='130' cy='128' r='22' fill='%23ffc233'/%3E%3Crect x='164' y='118' width='150' height='10' rx='5' fill='%23ffffff' opacity='0.75'/%3E%3Crect x='164' y='138' width='108' height='8' rx='4' fill='%23ffffff' opacity='0.4'/%3E%3Crect x='92' y='182' width='240' height='8' rx='4' fill='%234fd1c5' opacity='0.6'/%3E%3Crect x='92' y='202' width='196' height='8' rx='4' fill='%234fd1c5' opacity='0.4'/%3E%3Crect x='92' y='222' width='150' height='8' rx='4' fill='%234fd1c5' opacity='0.25'/%3E%3C/g%3E%3Cg%3E%3Crect x='430' y='92' width='300' height='248' rx='12' fill='%23162a44' stroke='%234fd1c5' stroke-width='2' opacity='0.9'/%3E%3Cpath d='M520 260 l60 -70 44 52 40 -36 46 54' fill='none' stroke='%23ffc233' stroke-width='3'/%3E%3Ccircle cx='676' cy='150' r='14' fill='%23ffc233'/%3E%3Crect x='452' y='300' width='126' height='8' rx='4' fill='%23ffffff' opacity='0.5'/%3E%3C/g%3E%3Cpath d='M0 400 Q200 360 420 396 T800 370' stroke='%23ffc233' stroke-width='2' fill='none' opacity='0.4'/%3E%3C/svg%3E" alt="焦点爆料作品《凌晨四点的批发市场》封面画面：市场数据与现场照片对照">
+          <span class="yb-thumb-tag">焦点 · 深度爆料</span>
+          <span class="yb-thumb-time">18:42</span>
+          <div class="yb-play" aria-hidden="true"><span></span></div>
+        </div>
+        <div class="yb-video-body">
+          <div class="yb-tagrow">
+            <span class="yb-tag yb-tag-amber">深度测评</span>
+            <span class="yb-tag">城市探索</span>
+            <span class="yb-tag">行业观察</span>
+          </div>
+          <h3 class="yb-video-title">凌晨四点的批发市场：一条供应链的真实成本</h3>
+          <p class="yb-video-sum">跟拍三座城市的批发市场，从装卸工、档口老板到冷链司机，用 18 分钟还原一条供应链从产地到货架的真实成本结构与时间账本。51爆料大赛 本季重点推荐作品，含完整数据核对与多方访谈。</p>
+          <div class="yb-meta-row">
+            <span class="yb-author-inline">
+              <span class="yb-avatar" style="background:#e8a400">陈</span>陈叙
+            </span>
+            <span class="yb-dot-sep"></span>
+            <span><span class="yb-num">86.4万</span> 播放</span>
+            <span class="yb-dot-sep"></span>
+            <span>11月20日</span>
+          </div>
+          <div class="yb-actions">
+            <button class="yb-action yb-js-like" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 11v9H4v-9zM7 11l5-8 1.6 1.2c.8.6 1.2 1.6 1 2.6L14 10h5.2c1.3 0 2.2 1.2 1.9 2.4l-1.7 6.3c-.2.8-1 1.3-1.8 1.3H7"/></svg>
+              <span class="yb-num" data-yb-like="10240">1.0万</span>
+            </button>
+            <button class="yb-action yb-js-fav" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.5 10.2l5.9-.9z"/></svg>
+              <span class="yb-num" data-yb-fav="3480">3480</span>
+            </button>
+            <button class="yb-action yb-js-copy" type="button" data-yb-copy="焦点作品：凌晨四点的批发市场">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 5H6a2 2 0 0 0-2 2v9"/></svg>
+              复制链接
+            </button>
+            <button class="yb-action yb-js-share" type="button">分享</button>
+          </div>
+        </div>
+      </article>
+
+      <div class="yb-video-list">
+        <article class="yb-vitem">
+          <div>
+            <h3 class="yb-vitem-title">一条街的十年：老城区改造里的商户账本</h3>
+            <p class="yb-vitem-desc">从拆迁公告张贴到第一间新店开张，跟踪七家小店的搬迁轨迹，记录真实经营者的选择与妥协。</p>
+            <div class="yb-vitem-meta">
+              <span class="yb-avatar" style="background:#4fd1c5;width:22px;height:22px;font-size:10px">林</span>
+              <span>林小满</span><span class="yb-dot-sep"></span><span>42.1万 播放</span><span class="yb-dot-sep"></span><span>在地文化</span>
+            </div>
+            <div class="yb-actions">
+              <button class="yb-action yb-js-like" type="button">点赞 <span class="yb-num" data-yb-like="5210">5210</span></button>
+              <button class="yb-action yb-js-fav" type="button">收藏 <span class="yb-num" data-yb-fav="1860">1860</span></button>
+            </div>
+          </div>
+          <div class="yb-vitem-rank yb-rank-top">01</div>
+        </article>
+
+        <article class="yb-vitem">
+          <div>
+            <h3 class="yb-vitem-title">拆解一条爆款视频的 11 个镜头</h3>
+            <p class="yb-vitem-desc">把 90 秒的高传播作品逐帧拆解，讲清楚节奏、信息密度与情绪落点，附可复用的脚本模板。</p>
+            <div class="yb-vitem-meta">
+              <span class="yb-avatar" style="background:#244c7d;width:22px;height:22px;font-size:10px">周</span>
+              <span>周见山</span><span class="yb-dot-sep"></span><span>37.8万 播放</span><span class="yb-dot-sep"></span><span>教程干货</span>
+            </div>
+            <div class="yb-actions">
+              <button class="yb-action yb-js-like" type="button">点赞 <span class="yb-num" data-yb-like="4980">4980</span></button>
+              <button class="yb-action yb-js-fav" type="button">收藏 <span class="yb-num" data-yb-fav="2410">2410</span></button>
+            </div>
+          </div>
+          <div class="yb-vitem-rank yb-rank-top">02</div>
+        </article>
+
+        <article class="yb-vitem">
+          <div>
+            <h3 class="yb-vitem-title">社区食堂的一天：从凌晨备菜到晚餐收档</h3>
+            <p class="yb-vitem-desc">镜头跟随三位厨师完成 1,200 份餐食，记录社区食堂的成本控制与一份菜单背后的取舍。</p>
+            <div class="yb-vitem-meta">
+              <span class="yb-avatar" style="background:#b8791d;width:22px;height:22px;font-size:10px">许</span>
+              <span>许一禾</span><span class="yb-dot-sep"></span><span>30.6万 播放</span><span class="yb-dot-sep"></span><span>日常记录</span>
+            </div>
+            <div class="yb-actions">
+              <button class="yb-action yb-js-like" type="button">点赞 <span class="yb-num" data-yb-like="3860">3860</span></button>
+              <button class="yb-action yb-js-fav" type="button">收藏 <span class="yb-num" data-yb-fav="1220">1220</span></button>
+            </div>
+          </div>
+          <div class="yb-vitem-rank yb-rank-top">03</div>
+        </article>
+
+        <article class="yb-vitem">
+          <div>
+            <h3 class="yb-vitem-title">把爆料做成访谈：三位从业者的口述历史</h3>
+            <p class="yb-vitem-desc">不追求爆点，只追问细节。三位在行业里工作了二十年的从业者，讲述他们亲历的规则变迁。</p>
+            <div class="yb-vitem-meta">
+              <span class="yb-avatar" style="background:#3d6b5c;width:22px;height:22px;font-size:10px">顾</span>
+              <span>顾长川</span><span class="yb-dot-sep"></span><span>26.3万 播放</span><span class="yb-dot-sep"></span><span>人物访谈</span>
+            </div>
+            <div class="yb-actions">
+              <button class="yb-action yb-js-like" type="button">点赞 <span class="yb-num" data-yb-like="3120">3120</span></button>
+              <button class="yb-action yb-js-fav" type="button">收藏 <span class="yb-num" data-yb-fav="980">980</span></button>
+            </div>
+          </div>
+          <div class="yb-vitem-rank">04</div>
+        </article>
+
+        <article class="yb-vitem">
+          <div>
+            <h3 class="yb-vitem-title">一支手机的记录实验：低预算影像的极限</h3>
+            <p class="yb-vitem-desc">全程只用一部手机与一支稳定器，完成一条 12 分钟的现场记录，分享设备清单与拍摄参数。</p>
+            <div class="yb-vitem-meta">
+              <span class="yb-avatar" style="background:#7b4b8c;width:22px;height:22px;font-size:10px">黎</span>
+              <span>黎知夏</span><span class="yb-dot-sep"></span><span>23.9万 播放</span><span class="yb-dot-sep"></span><span>创作幕后</span>
+            </div>
+            <div class="yb-actions">
+              <button class="yb-action yb-js-like" type="button">点赞 <span class="yb-num" data-yb-like="2760">2760</span></button>
+              <button class="yb-action yb-js-fav" type="button">收藏 <span class="yb-num" data-yb-fav="1430">1430</span></button>
+            </div>
+          </div>
+          <div class="yb-vitem-rank">05</div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S5 专题 / 企划 ============ -->
+<section class="yb-section yb-section-alt" id="yb-topics" aria-labelledby="yb-topics-title">
+  <div class="yb-wrap">
+    <div class="yb-sec-head">
+      <div>
+        <p class="yb-sec-kicker">Program · 专题企划</p>
+        <h2 class="yb-sec-title" id="yb-topics-title">51爆料大赛 的<span class="yb-underline">专题企划</span></h2>
+        <p class="yb-sec-desc">围绕垂直领域展开的长期企划，以多集内容持续追踪同一议题，形成可检索、可讨论、可持续运营的内容资产。</p>
+      </div>
+      <button class="yb-sec-link yb-js-submit" type="button">申请加入企划 →</button>
+    </div>
+
+    <div class="yb-topic-grid">
+      <article class="yb-topic">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Cdefs%3E%3ClinearGradient id='t1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231e304d'/%3E%3Cstop offset='1' stop-color='%2334456a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='360' fill='url(%23t1)'/%3E%3Cg fill='none' stroke='%23ffc233' stroke-width='3' opacity='0.85'%3E%3Ccircle cx='150' cy='180' r='64'/%3E%3Ccircle cx='150' cy='180' r='30'/%3E%3C/g%3E%3Cg stroke='%234fd1c5' stroke-width='2' opacity='0.6'%3E%3Cpath d='M260 120 h300'/%3E%3Cpath d='M260 168 h240'/%3E%3Cpath d='M260 216 h280'/%3E%3Cpath d='M260 264 h180'/%3E%3C/g%3E%3Ccircle cx='480' cy='96' r='20' fill='%23ffc233' opacity='0.85'/%3E%3C/svg%3E" alt="专题企划「城市现场档案」封面：同心观测与文件目录线稿">
+        <div class="yb-topic-body">
+          <span class="yb-topic-status">持续更新中 · 第 3 集已上线</span>
+          <h3 class="yb-topic-title">城市现场档案</h3>
+          <p class="yb-topic-desc">以城市为单位的长期记录计划，每座城市用三集成片建立一份可被引用的现场档案，强调真实、专业与可核查。</p>
+          <ul class="yb-topic-items">
+            <li>成都 · 被重新定义的一条街</li>
+            <li>合肥 · 一间工厂的搬迁日记</li>
+            <li>泉州 · 老手艺的新订单</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="yb-topic">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Cdefs%3E%3ClinearGradient id='t2' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23e8a400'/%3E%3Cstop offset='1' stop-color='%23ffc233'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='360' fill='%23142238'/%3E%3Crect x='60' y='60' width='240' height='240' rx='18' fill='url(%23t2)' opacity='0.9'/%3E%3Cg stroke='%230f1a2b' stroke-width='6' opacity='0.55'%3E%3Cpath d='M110 130 h140'/%3E%3Cpath d='M110 180 h110'/%3E%3Cpath d='M110 230 h150'/%3E%3C/g%3E%3Cg fill='none' stroke='%234fd1c5' stroke-width='3'%3E%3Cpath d='M340 200 l60 -60 70 40 60 -50'/%3E%3Ccircle cx='340' cy='200' r='6' fill='%234fd1c5'/%3E%3Ccircle cx='530' cy='130' r='6' fill='%234fd1c5'/%3E%3C/g%3E%3Crect x='340' y='240' width='200' height='10' rx='5' fill='%23ffffff' opacity='0.35'/%3E%3Crect x='340' y='266' width='150' height='10' rx='5' fill='%23ffffff' opacity='0.2'/%3E%3C/svg%3E" alt="专题企划「爆料方法论」封面：分镜脚本与数据曲线图形">
+        <div class="yb-topic-body">
+          <span class="yb-topic-status yb-status-warm">新企划 · 招募中</span>
+          <h3 class="yb-topic-title">爆料方法论</h3>
+          <p class="yb-topic-desc">面向新创作者的经验分享企划，聚焦选题判断、信源核对、拍摄与剪辑流程，把可复用的方法沉淀成公开课。</p>
+          <ul class="yb-topic-items">
+            <li>如何判断一条线索是否值得跟拍</li>
+            <li>三个人也能完成的现场记录分工</li>
+            <li>从素材到成片的 7 天工作流</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="yb-topic">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%23f0f4f9'/%3E%3Cg fill='%23254468'%3E%3Ccircle cx='120' cy='180' r='56'/%3E%3Ccircle cx='240' cy='140' r='38' opacity='0.8'/%3E%3Ccircle cx='250' cy='240' r='30' opacity='0.6'/%3E%3C/g%3E%3Cg fill='none' stroke='%23e8a400' stroke-width='3'%3E%3Cpath d='M340 110 q60 70 0 140'/%3E%3Cpath d='M400 130 q50 50 0 100'/%3E%3Cpath d='M460 150 q40 30 0 60'/%3E%3C/g%3E%3Crect x='360' y='292' width='220' height='8' rx='4' fill='%23254468' opacity='0.3'/%3E%3C/svg%3E" alt="专题企划「同好圆桌」封面：多个圆形头像与声波图形">
+        <div class="yb-topic-body">
+          <span class="yb-topic-status">已完结 · 12 集全</span>
+          <h3 class="yb-topic-title">同好圆桌</h3>
+          <p class="yb-topic-desc">每期邀请四位不同背景的社区创作者，就同一话题展开 40 分钟对谈，保留分歧，也保留现场的真实停顿。</p>
+          <ul class="yb-topic-items">
+            <li>我们为什么需要慢一点的内容</li>
+            <li>创作者如何处理评论区的情绪</li>
+            <li>小众题材的商业化边界在哪里</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S4 创作者矩阵 ============ -->
+<section class="yb-section" id="yb-authors" aria-labelledby="yb-authors-title">
+  <div class="yb-wrap">
+    <div class="yb-sec-head">
+      <div>
+        <p class="yb-sec-kicker">Creators · 创作者矩阵</p>
+        <h2 class="yb-sec-title" id="yb-authors-title">51爆料大赛 <span class="yb-underline">创作者</span>与作者名录</h2>
+        <p class="yb-sec-desc">平台的品质来自创作者的专业度。以下为部分签约作者，覆盖城市探索、深度测评、教程干货与人物访谈等方向。</p>
+      </div>
+      <button class="yb-sec-link yb-js-submit" type="button">成为创作者 →</button>
+    </div>
+
+    <div class="yb-author-grid">
+      <article class="yb-author-card">
+        <span class="yb-avatar yb-avatar-lg" style="background:#e8a400">陈</span>
+        <div class="yb-author-main">
+          <h3 class="yb-author-name">陈叙 <span class="yb-author-badge">签约作者</span></h3>
+          <p class="yb-author-field">擅长：城市探索 · 行业观察</p>
+          <p class="yb-author-bio">前纸媒深度报道记者，八年现场采访经验。习惯先做三周资料核对再开机，作品以信息密度高、结构清晰著称，擅长把复杂供应链讲成一条看得懂的时间线，曾获平台年度影响力作品。</p>
+          <div class="yb-author-stats"><span>作品 <b>186</b></span><span>粉丝 <b>42.8万</b></span><span>获赞 <b>310万</b></span></div>
+          <button class="yb-author-more yb-js-author" type="button" data-yb-author="陈叙">查看作者档案</button>
+        </div>
+      </article>
+
+      <article class="yb-author-card">
+        <span class="yb-avatar yb-avatar-lg" style="background:#4fd1c5">林</span>
+        <div class="yb-author-main">
+          <h3 class="yb-author-name">林小满 <span class="yb-author-badge">签约作者</span></h3>
+          <p class="yb-author-field">擅长：在地文化 · 日常记录</p>
+          <p class="yb-author-bio">生长于老城区的影像记录者，长期拍摄街区与手艺人的日常。她相信温和的镜头同样有力量，坚持自费走访，用三年时间积累了一条街的完整影像档案，作品在社区中拥有极高口碑。</p>
+          <div class="yb-author-stats"><span>作品 <b>142</b></span><span>粉丝 <b>31.6万</b></span><span>获赞 <b>225万</b></span></div>
+          <button class="yb-author-more yb-js-author" type="button" data-yb-author="林小满">查看作者档案</button>
+        </div>
+      </article>
+
+      <article class="yb-author-card">
+        <span class="yb-avatar yb-avatar-lg" style="background:#244c7d">周</span>
+        <div class="yb-author-main">
+          <h3 class="yb-author-name">周见山 <span class="yb-author-badge">签约作者</span></h3>
+          <p class="yb-author-field">擅长：教程干货 · 创作幕后</p>
+          <p class="yb-author-bio">影像教学博主，做过五年商业剪辑。内容以可操作性见长，每个教程都附带完整的项目文件与参数说明，被大量新手创作者作为入门参考，是平台教程类内容的长期口碑担当。</p>
+          <div class="yb-author-stats"><span>作品 <b>208</b></span><span>粉丝 <b>28.9万</b></span><span>获赞 <b>198万</b></span></div>
+          <button class="yb-author-more yb-js-author" type="button" data-yb-author="周见山">查看作者档案</button>
+        </div>
+      </article>
+
+      <article class="yb-author-card">
+        <span class="yb-avatar yb-avatar-lg" style="background:#b8791d">许</span>
+        <div class="yb-author-main">
+          <h3 class="yb-author-name">许一禾 <span class="yb-author-badge">签约作者</span></h3>
+          <p class="yb-author-field">擅长：美食烹饪 · 生活方式</p>
+          <p class="yb-author-bio">从社区食堂走出来的创作者，擅长以厨房为切口观察社区关系。作品几乎没有配乐，只保留切菜、翻锅与交谈的原声，被称为最有温度的日常影像，多次进入平台精品内容榜单。</p>
+          <div class="yb-author-stats"><span>作品 <b>97</b></span><span>粉丝 <b>22.4万</b></span><span>获赞 <b>156万</b></span></div>
+          <button class="yb-author-more yb-js-author" type="button" data-yb-author="许一禾">查看作者档案</button>
+        </div>
+      </article>
+
+      <article class="yb-author-card">
+        <span class="yb-avatar yb-avatar-lg" style="background:#3d6b5c">顾</span>
+        <div class="yb-author-main">
+          <h3 class="yb-author-name">顾长川 <span class="yb-author-badge">签约作者</span></h3>
+          <p class="yb-author-field">擅长：人物访谈 · 文化访谈</p>
+          <p class="yb-author-bio">习惯用长镜头和长问题做访谈，不剪辑受访者的迟疑。他关注行业转型中的个体选择，作品常被作为口述史料引用，在专业观众群体中拥有稳定的信任度与影响力。</p>
+          <div class="yb-author-stats"><span>作品 <b>78</b></span><span>粉丝 <b>19.7万</b></span><span>获赞 <b>121万</b></span></div>
+          <button class="yb-author-more yb-js-author" type="button" data-yb-author="顾长川">查看作者档案</button>
+        </div>
+      </article>
+
+      <article class="yb-author-card">
+        <span class="yb-avatar yb-avatar-lg" style="background:#7b4b8c">黎</span>
+        <div class="yb-author-main">
+          <h3 class="yb-author-name">黎知夏 <span class="yb-author-badge">新锐作者</span></h3>
+          <p class="yb-author-field">擅长：科技前沿 · 深度测评</p>
+          <p class="yb-author-bio">设备极简主义者，主张用最少的器材完成完整表达。作品多为单机位实拍加数据实测，强调结论可复现，善用对照实验拆解参数宣传，是平台新人榜上的长期前三。</p>
+          <div class="yb-author-stats"><span>作品 <b>63</b></span><span>粉丝 <b>15.3万</b></span><span>获赞 <b>94万</b></span></div>
+          <button class="yb-author-more yb-js-author" type="button" data-yb-author="黎知夏">查看作者档案</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S6 数据榜单 ============ -->
+<section class="yb-section yb-section-alt" id="yb-board" aria-labelledby="yb-board-title">
+  <div class="yb-wrap">
+    <div class="yb-sec-head">
+      <div>
+        <p class="yb-sec-kicker">Ranking · 数据榜单</p>
+        <h2 class="yb-sec-title" id="yb-board-title">51爆料大赛 的<span class="yb-underline">热度榜</span>与口碑观察</h2>
+        <p class="yb-sec-desc">榜单基于播放、完播、互动与社区评价四个维度综合计算，每周一更新，接受创作者申诉与数据复核。</p>
+      </div>
+      <a class="yb-sec-link" href="#yb-news">查看更新说明 →</a>
+    </div>
+
+    <div class="yb-board">
+      <div class="yb-board-col">
+        <div class="yb-board-head"><h3>作品热度榜</h3><span class="yb-board-pill">WEEK 47</span></div>
+        <div class="yb-board-list">
+          <div class="yb-board-row"><span class="yb-br-idx">1</span><span class="yb-br-name">凌晨四点的批发市场</span><span class="yb-br-val">86.4万</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">2</span><span class="yb-br-name">一条街的十年</span><span class="yb-br-val">42.1万</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">3</span><span class="yb-br-name">拆解一条爆款视频的 11 个镜头</span><span class="yb-br-val">37.8万</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">4</span><span class="yb-br-name">社区食堂的一天</span><span class="yb-br-val">30.6万</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">5</span><span class="yb-br-name">口述历史：三位从业者</span><span class="yb-br-val">26.3万</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">6</span><span class="yb-br-name">一支手机的记录实验</span><span class="yb-br-val">23.9万</span></div>
+        </div>
+      </div>
+
+      <div class="yb-board-col">
+        <div class="yb-board-head"><h3>新人创作者榜</h3><span class="yb-board-pill">NEW</span></div>
+        <div class="yb-board-list">
+          <div class="yb-board-row"><span class="yb-br-idx">1</span><span class="yb-br-name">黎知夏</span><span class="yb-br-val">+128%</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">2</span><span class="yb-br-name">彭野</span><span class="yb-br-val">+96%</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">3</span><span class="yb-br-name">祝行舟</span><span class="yb-br-val">+88%</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">4</span><span class="yb-br-name">阮小屿</span><span class="yb-br-val">+71%</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">5</span><span class="yb-br-name">钟启明</span><span class="yb-br-val">+64%</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">6</span><span class="yb-br-name">范时雨</span><span class="yb-br-val">+58%</span></div>
+        </div>
+      </div>
+
+      <div class="yb-board-col">
+        <div class="yb-board-head"><h3>社区口碑榜</h3><span class="yb-board-pill">口碑</span></div>
+        <div class="yb-board-list">
+          <div class="yb-board-row"><span class="yb-br-idx">1</span><span class="yb-br-name">同好圆桌 · 已完结</span><span class="yb-br-val">9.6 分</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">2</span><span class="yb-br-name">城市现场档案</span><span class="yb-br-val">9.4 分</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">3</span><span class="yb-br-name">社区食堂的一天</span><span class="yb-br-val">9.3 分</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">4</span><span class="yb-br-name">口述历史系列</span><span class="yb-br-val">9.2 分</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">5</span><span class="yb-br-name">爆料方法论公开课</span><span class="yb-br-val">9.0 分</span></div>
+          <div class="yb-board-row"><span class="yb-br-idx">6</span><span class="yb-br-name">一支手机的记录实验</span><span class="yb-br-val">8.9 分</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S4 品牌故事 + 关键词深度解析 ============ -->
+<section class="yb-section" id="yb-story" aria-labelledby="yb-story-title">
+  <div class="yb-wrap">
+    <div class="yb-sec-head">
+      <div>
+        <p class="yb-sec-kicker">Brand · 品牌故事</p>
+        <h2 class="yb-sec-title" id="yb-story-title">一家视频企业的<span class="yb-underline">品牌故事</span>与关键词解析</h2>
+        <p class="yb-sec-desc">51爆料大赛 从一次社区自发的爆料征集开始，成长为今天具备完整赛事体系、内容审核与创作者服务的品牌平台。</p>
+      </div>
+    </div>
+
+    <div class="yb-story-grid">
+      <figure class="yb-story-figure">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 540'%3E%3Cdefs%3E%3ClinearGradient id='s1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f5f7fa'/%3E%3Cstop offset='1' stop-color='%23dde6f1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='720' height='540' fill='url(%23s1)'/%3E%3Cg stroke='%23254468' stroke-width='2' opacity='0.35'%3E%3Cpath d='M0 420 h720'/%3E%3Cpath d='M0 360 h720'/%3E%3Cpath d='M0 300 h720'/%3E%3C/g%3E%3Cg%3E%3Crect x='90' y='160' width='120' height='200' rx='8' fill='%231e304d'/%3E%3Crect x='230' y='210' width='120' height='150' rx='8' fill='%23254468'/%3E%3Crect x='370' y='120' width='120' height='240' rx='8' fill='%230f1a2b'/%3E%3Crect x='510' y='250' width='120' height='110' rx='8' fill='%2334456a'/%3E%3C/g%3E%3Cg fill='%23ffc233'%3E%3Ccircle cx='150' cy='210' r='14'/%3E%3Ccircle cx='290' cy='258' r='12'/%3E%3Ccircle cx='430' cy='170' r='16'/%3E%3Ccircle cx='570' cy='292' r='10'/%3E%3C/g%3E%3Cg stroke='%234fd1c5' stroke-width='3' fill='none'%3E%3Cpath d='M120 250 h60'/%3E%3Cpath d='M260 290 h60'/%3E%3Cpath d='M400 220 h60'/%3E%3Cpath d='M540 320 h60'/%3E%3C/g%3E%3Cpath d='M80 400 Q240 330 400 388 T660 350' stroke='%23e8a400' stroke-width='4' fill='none' opacity='0.8'/%3E%3C/svg%3E" alt="51爆料大赛品牌故事插画：四座年份楼宇与增长曲线组成的成长历程图">
+      </figure>
+
+      <div class="yb-story-text">
+        <p>2019 年，51爆料大赛 还只是一个由几位影像爱好者发起的小型征集活动。初衷很简单：让那些被忽略的现场拥有一次被认真记录的机会。第一批作品只有十七件，但每一件都附有详细的拍摄说明与信息来源，这种近乎固执的严谨，成为品牌最早的底色。</p>
+        <p>此后几年，平台逐步建立起赛事体系、内容审核标准与创作者服务机制。我们引入多轮事实核对流程，要求投稿标注时间、地点与可查证的线索来源；同时开放创作课程与剪辑工具支持，让经验不足但愿意投入的创作者，也能做出专业水准的作品。</p>
+        <blockquote class="yb-story-quote">“我们不追逐最短时间里的最大声量，我们更在意一条内容在半年后是否依然站得住。”</blockquote>
+        <p>今天的 51爆料大赛 是一家持续运营的原创视频企业，业务覆盖内容出品、赛事运营、创作者孵化与品牌合作。我们希望以官方发布的标准守住品质，以社区的活力保持多元，以真实与温暖作为长期陪伴的承诺。</p>
+        <div class="yb-mini-stats">
+          <div class="yb-mini-stat"><b>7 年</b><span>品牌持续运营</span></div>
+          <div class="yb-mini-stat"><b>32 城</b><span>线下拍摄覆盖</span></div>
+          <div class="yb-mini-stat"><b>96.8%</b><span>内容复核通过率</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="yb-article" style="margin-top:44px">
+      <div class="yb-article-callout">
+        <strong>关键词解析 · 51爆料大赛</strong>　以下内容从品牌定位、内容机制与长期运营三个层面，系统说明 51爆料大赛 这一关键词所代表的产品形态与行业价值。
+      </div>
+
+      <h3>一、关键词的字面结构：为什么是「爆料」与「大赛」</h3>
+      <p>拆开来看，「51爆料大赛」由三个语素构成：数字标识、行为动词与赛事名词。数字「51」在中文语境里带有明确的指代感与口语节奏，读起来短促、易记，也天然适合作为品牌符号使用；「爆料」指向一种内容类型——把尚未被充分知晓的事实、现场与细节带到公众面前；「大赛」则框定了组织方式——它不是一个松散的投稿箱，而是一个有赛制、有评审、有阶段更新与公开榜单的赛事体系。三部分组合在一起，形成了「品牌名 + 内容品类 + 组织形态」的三层结构，这在国内视频社区中相对少见。它带来的好处是定位清晰：用户看到名称，就能大致判断这里能看到什么、能参与什么。作为官方网站，51爆料大赛 的首页需要在一屏之内完成这一定位传达，因此首屏既要有大标题式的品牌声明，也要有具体的赛事进度与数据支撑，避免只喊口号。</p>
+      <p>从搜索与传播的角度看，这个关键词同时覆盖了内容需求与参与需求两类意图。一部分用户是来找作品看的，他们关心的是「有没有值得看的爆料影像」；另一部分用户是来找入口的，他们关心的是「怎么报名、怎么上传、评审标准是什么」。一个好的官网首页必须同时服务这两类人，因此我们在导航中把「焦点爆料」「视频专区」与「报名参赛」「投稿爆料」并列呈现，让观看路径与参与路径在同一视觉层级上被看见。这也是关键词在产品结构上的直接投射：爆料是内容，大赛是机制，二者缺一不可。</p>
+
+      <h3>二、内容机制：爆料类视频如何保证专业与可信</h3>
+      <p>爆料内容天然带有信息风险，这也是 51爆料大赛 在机制设计上投入最多的地方。首先是信源分层：平台要求投稿者标注三类信息——时间地点、线索来源、可核实的旁证材料。对于涉及具体机构与个人的内容，编辑团队会进行至少两轮独立复核，并在成片页面展示复核状态。其次是表达规范：我们鼓励创作者保留调查过程，包括未获回应的采访请求与存在争议的判断，而不是把这些部分剪掉只留下结论。这种「保留过程」的做法，虽然会牺牲一点节奏感，但显著提升了内容的可信度，也让观众能够自行判断信息强度。</p>
+      <p>第三是评审与榜单的公开性。平台的热度榜、新人榜与口碑榜采用不同的计算口径：热度关注播放与互动，新人关注成长斜率，口碑则依赖长周期评分与社区评价。三张榜单并列展示，本质上是在告诉用户「我们不只奖励流量」。对一个以爆料为核心的视频平台而言，这种多维度评价体系是品牌信誉的基础，也是 51爆料大赛 能够在垂直领域持续积累口碑的原因。我们在官网公开展示榜单与规则，接受创作者申诉，目的就是让专业与透明成为可被检验的事实，而不是宣传语。</p>
+      <p>此外，平台对视频画质与声音处理也有明确要求：重点作品需提供高清版本，现场同期声不得随意替换，字幕需与口述内容一致。这些看似琐碎的技术标准，实际上决定了爆料内容能否被当作可引用的影像资料。很多创作者反馈，正是因为平台坚持这些要求，他们的作品才有机会被研究机构、媒体与行业从业者二次引用。口碑由此形成，影响力也由此积累。</p>
+
+      <h3>三、社区与生态：从一次投稿到长期陪伴</h3>
+      <p>一个内容平台能否持续运营，关键在于它是否让创作者感到被长期对待。51爆料大赛 的做法是把社区建设拆成可执行的动作：新作者进入后有明确的成长路径与公开课；中途遇到选题困难可以在社区发起共创；成片发布后会收到结构化的反馈而不只是情绪化评论；优秀作品会被纳入专题企划并获得二次曝光。这些动作单独看都不新鲜，但组合起来形成了一条完整的陪伴链条。我们在评论区采用双列短评与引用摘录混合的呈现方式，也是希望不同类型的反馈都能被看见——既有一句话的共鸣，也有长段的专业讨论。</p>
+      <p>生态的另一端是企业与合作品牌。平台与多家机构建立了内容共建关系，覆盖城市观察、职业技能、公益记录等方向。合作不是简单的贴标，而是共同设定选题、共同承担核实成本、共同分享传播结果。这种深度合作让 51爆料大赛 的内容边界不断扩展，也让品牌在社会责任层面有了更实在的落点。我们始终认为，一个视频品牌的品质不只体现在成片里，也体现在它如何对待线索、如何对待创作者、如何对待争议。</p>
+      <p>回到用户视角，关键词「51爆料大赛」最终指向的是一种确定的体验：打开官网，能看到清晰的赛事进度，能找到值得花时间看的高清作品，能遇到愿意认真回复的创作者，也能找到一个愿意听你把话说完的社区。我们把这四件事当作长期目标，持续运营、持续迭代。对一家企业而言，这或许不是最快的路径，但它足够稳，也足够真诚。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S6 用户评价（双列短评 + 引用） ============ -->
+<section class="yb-section yb-section-alt" id="yb-comments" aria-labelledby="yb-comments-title">
+  <div class="yb-wrap">
+    <div class="yb-sec-head">
+      <div>
+        <p class="yb-sec-kicker">Voices · 社区声音</p>
+        <h2 class="yb-sec-title" id="yb-comments-title">来自 <span class="yb-underline">51爆料大赛</span> 社区的真实评价</h2>
+        <p class="yb-sec-desc">以下是近期社区短评与长评摘录，涵盖观看体验、创作支持与赛事规则等不同维度，未经修饰。</p>
+      </div>
+      <button class="yb-sec-link yb-js-comment" type="button">写下你的评价 →</button>
+    </div>
+
+    <div class="yb-comment-grid">
+      <article class="yb-comment">
+        <div class="yb-comment-head">
+          <span class="yb-avatar" style="background:#e8a400">何</span>
+          <span class="yb-comment-name">何以为家</span>
+          <span class="yb-comment-time">11月21日</span>
+        </div>
+        <div class="yb-stars" aria-label="评分 5 分">★★★★★</div>
+        <p class="yb-comment-text">看了《凌晨四点的批发市场》，最打动我的不是结论，而是它把核对过程也放进去了。很少见到平台愿意让一条视频「慢下来」，这份耐心挺难得。</p>
+      </article>
+
+      <article class="yb-comment">
+        <div class="yb-comment-head">
+          <span class="yb-avatar" style="background:#4fd1c5">沈</span>
+          <span class="yb-comment-name">沈砚秋</span>
+          <span class="yb-comment-time">11月20日</span>
+        </div>
+        <div class="yb-stars" aria-label="评分 4 分">★★★★☆</div>
+        <p class="yb-comment-text">作为刚上传第一支作品的作者，审核反馈比我想的细致，指出了两处信息来源不完整，还给了修改建议。虽然被退回一次，但确实学到东西。</p>
+      </article>
+
+      <article class="yb-comment">
+        <div class="yb-comment-head">
+          <span class="yb-avatar" style="background:#244c7d">罗</span>
+          <span class="yb-comment-name">罗一舟</span>
+          <span class="yb-comment-time">11月19日</span>
+        </div>
+        <div class="yb-stars" aria-label="评分 5 分">★★★★★</div>
+        <div class="yb-comment-ref">引用自长评：“榜单口径公开这一点，是我留在平台的主要原因。”</div>
+        <p class="yb-comment-text">三张榜单分开算，确实比单一播放量合理。我做的是小众题材，热度上不去，但口碑榜能进前二十，这种被看见的感觉很实在。</p>
+      </article>
+
+      <article class="yb-comment">
+        <div class="yb-comment-head">
+          <span class="yb-avatar" style="background:#b8791d">孟</span>
+          <span class="yb-comment-name">孟冬</span>
+          <span class="yb-comment-time">11月18日</span>
+        </div>
+        <div class="yb-stars" aria-label="评分 4 分">★★★★☆</div>
+        <p class="yb-comment-text">页面加载和播放都很稳，高清版本下载也方便。唯一希望改进的是专题企划的更新提醒，现在得自己点进去看有没有新一集。</p>
+      </article>
+
+      <article class="yb-comment">
+        <div class="yb-comment-head">
+          <span class="yb-avatar" style="background:#3d6b5c">宗</span>
+          <span class="yb-comment-name">宗白</span>
+          <span class="yb-comment-time">11月17日</span>
+        </div>
+        <div class="yb-stars" aria-label="评分 5 分">★★★★★</div>
+        <p class="yb-comment-text">《同好圆桌》十二集全看完了。保留了分歧和停顿，这点特别珍贵。现在很多对谈节目都变成互相捧场，这里还愿意把问题问到底。</p>
+      </article>
+
+      <article class="yb-comment">
+        <div class="yb-comment-head">
+          <span class="yb-avatar" style="background:#7b4b8c">苏</span>
+          <span class="yb-comment-name">苏折</span>
+          <span class="yb-comment-time">11月16日</span>
+        </div>
+        <div class="yb-stars" aria-label="评分 5 分">★★★★★</div>
+        <div class="yb-comment-ref">引用自更新日志：“11月新增三项赛事赛道。”</div>
+        <p class="yb-comment-text">新增的科技测评赛道让我这种设备党终于有地方投稿了。报名流程比想象中短，十分钟就填完，规则说明也写得清楚，没有藏着掖着的条款。</p>
+      </article>
+
+      <article class="yb-comment">
+        <div class="yb-comment-head">
+          <span class="yb-avatar" style="background:#a34d4d">闻</span>
+          <span class="yb-comment-name">闻人野</span>
+          <span class="yb-comment-time">11月15日</span>
+        </div>
+        <div class="yb-stars" aria-label="评分 4 分">★★★★☆</div>
+        <p class="yb-comment-text">内容整体品质在线，尤其是专访系列。建议增加按拍摄年份检索的功能，做资料整理时会更方便一些，现在只能一页页翻。</p>
+      </article>
+
+      <article class="yb-comment">
+        <div class="yb-comment-head">
+          <span class="yb-avatar" style="background:#5a6f4a">程</span>
+          <span class="yb-comment-name">程未晚</span>
+          <span class="yb-comment-time">11月14日</span>
+        </div>
+        <div class="yb-stars" aria-label="评分 5 分">★★★★★</div>
+        <p class="yb-comment-text">从第一届就开始看，能明显感觉到这几年内容更扎实了。以前靠标题吸引点击，现在点进去是真的有信息，这种变化作为老用户很欣慰。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S7 企业动态 + 合作品牌 ============ -->
+<section class="yb-section" id="yb-news" aria-labelledby="yb-news-title">
+  <div class="yb-wrap">
+    <div class="yb-sec-head">
+      <div>
+        <p class="yb-sec-kicker">Newsroom · 企业动态</p>
+        <h2 class="yb-sec-title" id="yb-news-title">51爆料大赛 <span class="yb-underline">企业动态</span>与更新日志</h2>
+        <p class="yb-sec-desc">官方发布的赛事进展、产品更新与合作信息，均可在此追溯。所有公告以本页记录为准。</p>
+      </div>
+    </div>
+
+    <div class="yb-news-list">
+      <article class="yb-news-item">
+        <span class="yb-news-date">2026.11.21</span>
+        <div>
+          <h3 class="yb-news-title">新增科技测评、社区观察、手艺纪实三条赛事赛道</h3>
+          <p class="yb-news-desc">报名入口已开放，单条作品时长放宽至 25 分钟，评审增加数据可复现性一项。</p>
+        </div>
+        <span class="yb-news-type">官方发布</span>
+      </article>
+      <article class="yb-news-item">
+        <span class="yb-news-date">2026.11.18</span>
+        <div>
+          <h3 class="yb-news-title">「真实力·爆料挑战」第一季入围名单公示</h3>
+          <p class="yb-news-desc">共 48 位创作者上榜，公示期七天，接受材料补充与异议申诉。</p>
+        </div>
+        <span class="yb-news-type">赛事进展</span>
+      </article>
+      <article class="yb-news-item">
+        <span class="yb-news-date">2026.11.12</span>
+        <div>
+          <h3 class="yb-news-title">高清播放与作品下载功能完成升级</h3>
+          <p class="yb-news-desc">重点作品支持 1080P 与原始素材包下载，创作者可自选授权范围。</p>
+        </div>
+        <span class="yb-news-type">产品更新</span>
+      </article>
+      <article class="yb-news-item">
+        <span class="yb-news-date">2026.11.05</span>
+        <div>
+          <h3 class="yb-news-title">与三家城市文化机构达成内容共建合作</h3>
+          <p class="yb-news-desc">合作方向覆盖城市影像档案、社区口述史与传统手艺记录，首期项目已启动。</p>
+        </div>
+        <span class="yb-news-type">品牌合作</span>
+      </article>
+      <article class="yb-news-item">
+        <span class="yb-news-date">2026.10.28</span>
+        <div>
+          <h3 class="yb-news-title">创作公开课第四季上线，共 8 节免费课程</h3>
+          <p class="yb-news-desc">涵盖选题判断、信源核对、现场收音与剪辑节奏，配套练习素材同步开放下载。</p>
+        </div>
+        <span class="yb-news-type">社区运营</span>
+      </article>
+    </div>
+
+    <div class="yb-sec-head" style="margin-top:52px;margin-bottom:24px">
+      <div>
+        <p class="yb-sec-kicker">Partners · 合作网络</p>
+        <h3 class="yb-sec-title" style="font-size:22px">共建 <span class="yb-underline">51爆料大赛</span> 内容生态的伙伴</h3>
+      </div>
+    </div>
+
+    <div class="yb-partners">
+      <div class="yb-partner">
+        <span class="yb-partner-mark" style="background:#244c7d">城</span>
+        <div><div class="yb-partner-name">城市观察联盟</div><div class="yb-partner-sub">内容共建伙伴</div></div>
+      </div>
+      <div class="yb-partner">
+        <span class="yb-partner-mark" style="background:#e8a400">影</span>
+        <div><div class="yb-partner-name">拾光影社</div><div class="yb-partner-sub">器材与技术支持</div></div>
+      </div>
+      <div class="yb-partner">
+        <span class="yb-partner-mark" style="background:#3d6b5c">档</span>
+        <div><div class="yb-partner-name">地方影像档案馆</div><div class="yb-partner-sub">资料核实协作</div></div>
+      </div>
+      <div class="yb-partner">
+        <span class="yb-partner-mark" style="background:#7b4b8c">课</span>
+        <div><div class="yb-partner-name">创作者公开课计划</div><div class="yb-partner-sub">教育合作</div></div>
+      </div>
+      <div class="yb-partner">
+        <span class="yb-partner-mark" style="background:#a34d4d">益</span>
+        <div><div class="yb-partner-name">社区公益记录基金</div><div class="yb-partner-sub">公益支持</div></div>
+      </div>
+      <div class="yb-partner">
+        <span class="yb-partner-mark" style="background:#5a6f4a">研</span>
+        <div><div class="yb-partner-name">媒介研究小组</div><div class="yb-partner-sub">评审与学术支持</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S7 FAQ + 联系投稿 ============ -->
+<section class="yb-section yb-section-alt" id="yb-faq" aria-labelledby="yb-faq-title">
+  <div class="yb-wrap">
+    <div class="yb-sec-head">
+      <div>
+        <p class="yb-sec-kicker">Help · 帮助中心</p>
+        <h2 class="yb-sec-title" id="yb-faq-title">关于 <span class="yb-underline">51爆料大赛</span> 的常见问题</h2>
+        <p class="yb-sec-desc">赛事规则、投稿审核、版权授权与社区规范，都可以在这里找到答案。若仍有疑问，可通过页面底部联系方式与我们沟通。</p>
+      </div>
+      <button class="yb-sec-link yb-js-submit" type="button">联系投稿 →</button>
+    </div>
+
+    <div class="yb-faq">
+      <details>
+        <summary>参加 51爆料大赛 需要什么条件？</summary>
+        <p>年满十八周岁、拥有可独立投稿的作品即可参加，无需专业机构推荐。未成年人需在监护人书面同意后由监护人代为提交。赛事不收取报名费用，也不要求签署排他协议，创作者可同时在其他平台发布作品。</p>
+      </details>
+      <details>
+        <summary>投稿作品的时长与格式有什么要求？</summary>
+        <p>常规赛道单条作品时长为 3 至 25 分钟，建议 1080P 及以上、H.264 编码。重点作品可申请原始素材包上传，单文件不超过 8GB。音频需保留现场同期声，若使用配乐须提供可商用授权说明，否则审核时会被退回补充。</p>
+      </details>
+      <details>
+        <summary>平台如何核实爆料内容的真实性？</summary>
+        <p>投稿需填写时间、地点与线索来源，并尽可能附上旁证材料。编辑团队会进行至少两轮独立复核，涉及具体机构与个人的内容会额外增加一轮。复核状态会在成片页面公开标注，对无法核实的关键结论，我们会要求创作者以明确方式提示不确定性，而不是直接删除。</p>
+      </details>
+      <details>
+        <summary>作品的版权归谁？平台会如何使用？</summary>
+        <p>作品著作权归创作者所有。平台获得的是展示、传播与赛事宣传范围内的非排他授权，创作者可自行选择是否开放二次创作与素材下载。任何超出约定范围的商业使用，都会单独签署授权协议并明确分成方式。</p>
+      </details>
+      <details>
+        <summary>为什么我的作品审核时间比较久？</summary>
+        <p>涉及多方主体、需要交叉核实的作品，审核周期通常为三到七个工作日，个别复杂的调查类内容可能更长。若材料齐全一般会更快。审核期间可以在创作中心查看进度，被退回时会附上具体修改建议，按提示调整后可再次提交。</p>
+      </details>
+      <details>
+        <summary>榜单的计算口径是否可以公开查询？</summary>
+        <p>可以。热度榜、新人榜与口碑榜的指标定义、权重与更新周期都在帮助中心公示，每周一更新数据。创作者如对榜单数据有异议，可在更新后七日内提交复核申请，平台会在三个工作日内回复处理结果。</p>
+      </details>
+      <details>
+        <summary>如何加入专题企划或成为签约创作者？</summary>
+        <p>专题企划会不定期开放申请，通常要求提交一份完整的选题方案与过往作品。签约创作者采取邀请与申请结合的方式，重点考察内容的专业性、持续产出能力与社区评价。点击页面中的投稿与申请入口，填写基本信息即可进入初审队列。</p>
+      </details>
+      <details>
+        <summary>社区评论有哪些规范？</summary>
+        <p>我们鼓励具体、有依据的讨论，反对人身攻击、地域歧视与未经允许披露他人隐私。涉及事实争议的评论需提供可查证线索，否则会被折叠处理。平台保留删除违规内容与限制账号发言的权利，处理结果可通过申诉渠道复核。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ S8 页脚 ============ -->
+<footer class="yb-footer">
+  <div class="yb-wrap">
+    <div class="yb-footer-grid">
+      <div>
+        <div class="yb-footer-brand">
+          <span class="yb-brand-mark" aria-hidden="true" style="background:#16243a">
+            <svg viewBox="0 0 64 64" role="img" aria-label="51爆料大赛页脚标识">
+              <path d="M14 46 L32 14 L50 46 Z" fill="none" stroke="#ffc233" stroke-width="4" stroke-linejoin="round"/>
+              <circle cx="32" cy="37" r="5.4" fill="#ffc233"/>
+            </svg>
+          </span>
+          <span class="yb-brand-text">
+            <span class="yb-brand-name">51爆料大赛</span>
+            <span class="yb-brand-sub">BAOLIAO VIDEO</span>
+          </span>
+        </div>
+        <p>51爆料大赛官方网站 · 版权所有 · 持续运营中。我们是一家专注原创爆料影像的视频企业，以专业审核、精品内容与开放的社区生态，为创作者与企业搭建值得信赖的内容平台。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#yb-focus">焦点爆料</a></li>
+          <li><a href="#yb-videos">视频专区</a></li>
+          <li><a href="#yb-topics">专题企划</a></li>
+          <li><a href="#yb-board">数据榜单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与方式</h4>
+        <ul>
+          <li><a href="#yb-authors">创作者矩阵</a></li>
+          <li><a href="#yb-faq">赛事规则</a></li>
+          <li><a href="#yb-news">企业动态</a></li>
+          <li><a href="#yb-story">品牌故事</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <ul>
+          <li>合作咨询：partner@baoliao-video.cn</li>
+          <li>投稿事务：submit@baoliao-video.cn</li>
+          <li>媒体联络：press@baoliao-video.cn</li>
+          <li>工作时间：周一至周五 10:00–18:30</li>
+        </ul>
+      </div>
+    </div>
+    <div class="yb-footer-bottom">
+      <span>© 2019–2026 51爆料大赛 官方网站　保留所有权利</span>
+      <span>
+        <span>备案号：京 ICP 备 2019000000 号</span>
+        <span class="yb-sep">　|　</span>
+        <span>网络视听内容审核备案</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="yb-toast" id="yb-toast" role="status" aria-live="polite"></div>
+
+<!-- 投稿 / 分享 / 作者 / 评论 通用弹窗 -->
+<div class="yb-modal-mask" id="yb-modal-mask" role="dialog" aria-modal="true" aria-labelledby="yb-modal-title">
+  <div class="yb-modal" id="yb-modal-body">
+    <button class="yb-modal-close" id="yb-modal-close" type="button" aria-label="关闭弹窗">×</button>
+    <div id="yb-modal-content"></div>
+  </div>
+</div>
+
+<!-- 回到顶部 -->
+<button class="yb-top-btn" id="yb-top-btn" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 工具 ---------- */
+  var toastEl = document.getElementById('yb-toast');
+  var toastTimer = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('yb-show');
+    if(toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('yb-show'); }, 2200);
+  }
+
+  function fmtNum(n){
+    if(n >= 10000){ return (n/10000).toFixed(1).replace(/\.0$/,'') + '万'; }
+    return String(n);
+  }
+
+  /* ---------- 1. 移动端导航折叠 ---------- */
+  var burger = document.getElementById('yb-burger');
+  var nav = document.getElementById('yb-nav');
+  if(burger && nav){
+    burger.addEventListener('click', function(){
+      var open = nav.classList.toggle('yb-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? '收起导航菜单' : '展开导航菜单');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        nav.classList.remove('yb-open');
+        burger.setAttribute('aria-expanded','false');
+        burger.setAttribute('aria-label','展开导航菜单');
+      }
+    });
+  }
+
+  /* ---------- 2. 搜索前端反馈 ---------- */
+  var searchInput = document.getElementById('yb-search-input');
+  var searchHint = document.getElementById('yb-search-hint');
+  var searchPool = [
+    {k:'批发市场', t:'焦点作品：凌晨四点的批发市场'},
+    {k:'城市', t:'专题：城市现场档案（持续更新中）'},
+    {k:'陈叙', t:'创作者：陈叙 · 城市探索 / 行业观察'},
+    {k:'林小满', t:'创作者：林小满 · 在地文化 / 日常记录'},
+    {k:'教程', t:'视频：拆解一条爆款视频的 11 个镜头'},
+    {k:'榜单', t:'数据：作品热度榜 · 新人榜 · 口碑榜'},
+    {k:'报名', t:'赛事：报名参赛与赛道说明'},
+    {k:'评测', t:'视频：一支手机的记录实验'},
+    {k:'访谈', t:'专题：同好圆桌 · 12 集全'},
+    {k:'食堂', t:'视频：社区食堂的一天'}
+  ];
+  function doSearch(){
+    if(!searchInput || !searchHint) return;
+    var q = searchInput.value.trim();
+    if(!q){
+      searchHint.classList.remove('yb-show');
+      searchHint.innerHTML = '';
+      return;
+    }
+    var hit = searchPool.filter(function(it){
+      return it.k.indexOf(q) > -1 || it.t.indexOf(q) > -1;
+    });
+    if(hit.length){
+      searchHint.innerHTML = '<div style="padding:2px 6px 6px;color:#8b9aad">找到 ' + hit.length + ' 条相关内容</div>' +
+        hit.slice(0,5).map(function(it){
+          return '<div style="padding:6px 8px;border-radius:8px;display:flex;gap:8px;align-items:flex-start">' +
+            '<em>›</em><span>' + it.t.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'), '<b>' + q + '</b>') + '</span></div>';
+        }).join('');
+    }else{
+      searchHint.innerHTML = '<div style="padding:6px 8px">未找到「<b>' + q + '</b>」相关内容，试试「城市」「教程」「榜单」。</div>';
+    }
+    searchHint.classList.add('yb-show');
+  }
+  if(searchInput){
+    searchInput.addEventListener('input', doSearch);
+    searchInput.addEventListener('focus', doSearch);
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        var q = searchInput.value.trim();
+        toast(q ? '已为你检索「' + q + '」，可在视频专区查看相关内容' : '请输入关键词后再搜索');
+        searchHint.classList.remove('yb-show');
+      }
+      if(e.key === 'Escape'){ searchHint.classList.remove('yb-show'); }
+    });
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.yb-search')) searchHint.classList.remove('yb-show');
+    });
+  }
+
+  /* ---------- 3. 点赞 / 收藏 ---------- */
+  document.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('.yb-js-like');
+    if(likeBtn){
+      var numEl = likeBtn.querySelector('[data-yb-like]');
+      if(!numEl) return;
+      var base = parseInt(numEl.getAttribute('data-yb-like'), 10) || 0;
+      var liked = likeBtn.classList.toggle('yb-liked');
+      var next = liked ? base + 1 : base - 1;
+      numEl.setAttribute('data-yb-like', String(next));
+      numEl.textContent = fmtNum(next);
+      toast(liked ? '已点赞，感谢你的支持' : '已取消点赞');
+      return;
+    }
+
+    var favBtn = e.target.closest('.yb-js-fav');
+    if(favBtn){
+      var fEl = favBtn.querySelector('[data-yb-fav]');
+      if(!fEl) return;
+      var fBase = parseInt(fEl.getAttribute('data-yb-fav'), 10) || 0;
+      var faved = favBtn.classList.toggle('yb-faved');
+      var fNext = faved ? fBase + 1 : fBase - 1;
+      fEl.setAttribute('data-yb-fav', String(fNext));
+      fEl.textContent = fmtNum(fNext);
+      toast(faved ? '已加入收藏，可在个人中心查看' : '已取消收藏');
+      return;
+    }
+  });
+
+  /* ---------- 4. 弹窗系统 ---------- */
+  var mask = document.getElementById('yb-modal-mask');
+  var modalContent = document.getElementById('yb-modal-content');
+  var modalBody = document.getElementById('yb-modal-body');
+  function openModal(html){
+    modalContent.innerHTML = html;
+    mask.classList.add('yb-show');
+    document.body.style.overflow = 'hidden';
+    var first = modalBody.querySelector('input,textarea,select');
+    if(first) setTimeout(function(){ try{ first.focus(); }catch(err){} }, 60);
+  }
+  function closeModal(){
+    mask.classList.remove('yb-show');
+    modalContent.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('yb-modal-close').addEventListener('click', closeModal);
+  mask.addEventListener('click', function(e){
+    if(e.target === mask) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && mask.classList.contains('yb-show')) closeModal();
+  });
+
+  /* ---------- 投稿入口弹窗 ---------- */
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.yb-js-submit');
+    if(!btn) return;
+    openModal(
+      '<h3 id="yb-modal-title">投稿 · 报名 51爆料大赛</h3>' +
+      '<p class="yb-modal-sub">填写基本信息后，编辑部将在三个工作日内与你联系，并发送完整投稿指引。</p>' +
+      '<label for="yb-m-name">创作者昵称</label>' +
+      '<input id="yb-m-name" type="text" placeholder="例如：陈叙" autocomplete="nickname">' +
+      '<label for="yb-m-contact">联系方式（邮箱或手机号）</label>' +
+      '<input id="yb-m-contact" type="text" placeholder="用于接收审核结果与赛事通知">' +
+      '<label for="yb-m-track">意向方向</label>' +
+      '<select id="yb-m-track">' +
+        '<option>城市探索 · 在地文化</option>' +
+        '<option>深度测评 · 科技前沿</option>' +
+        '<option>教程干货 · 创作幕后</option>' +
+        '<option>人物访谈 · 文化访谈</option>' +
+        '<option>日常记录 · 生活方式</option>' +
+        '<option>其他（可在备注中说明）</option>' +
+      '</select>' +
+      '<label for="yb-m-note">作品或选题简述</label>' +
+      '<textarea id="yb-m-note" placeholder="用两三句话说明你想拍什么、为什么值得拍。"></textarea>' +
+      '<div class="yb-modal-actions">' +
+        '<button class="yb-action" type="button" id="yb-m-cancel">取消</button>' +
+        '<button class="yb-btn-primary" type="button" id="yb-m-ok">提交报名</button>' +
+      '</div>'
+    );
+    document.getElementById('yb-m-cancel').addEventListener('click', closeModal);
+    document.getElementById('yb-m-ok').addEventListener('click', function(){
+      var name = document.getElementById('yb-m-name').value.trim();
+      var contact = document.getElementById('yb-m-contact').value.trim();
+      if(!name || !contact){
+        toast('请先填写昵称与联系方式');
+        return;
+      }
+      closeModal();
+      toast('报名已提交，审核结果将通过所留联系方式发送');
+    });
+  });
+
+  /* ---------- 分享弹窗 ---------- */
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.yb-js-share');
+    if(!btn) return;
+    openModal(
+      '<h3 id="yb-modal-title">分享这条内容</h3>' +
+      '<p class="yb-modal-sub">选择你常用的方式，把 51爆料大赛 的精品内容分享给朋友。</p>' +
+      '<div class="yb-share-row">' +
+        '<button class="yb-share-btn" type="button" data-yb-share="微信"><span class="yb-share-ico">微</span>微信</button>' +
+        '<button class="yb-share-btn" type="button" data-yb-share="微博"><span class="yb-share-ico">博</span>微博</button>' +
+        '<button class="yb-share-btn" type="button" data-yb-share="QQ"><span class="yb-share-ico">Q</span>QQ</button>' +
+        '<button class="yb-share-btn" type="button" data-yb-share="复制"><span class="yb-share-ico">链</span>复制</button>' +
+      '</div>' +
+      '<div class="yb-modal-actions"><button class="yb-btn-primary" type="button" id="yb-m-share-close">完成</button></div>'
+    );
+    document.getElementById('yb-m-share-close').addEventListener('click', closeModal);
+    modalContent.querySelectorAll('[data-yb-share]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var ch = b.getAttribute('data-yb-share');
+        if(ch === '复制'){
+          copyText('51爆料大赛 · 焦点作品：凌晨四点的批发市场');
+        }else{
+          toast('已调起' + ch + '分享入口（演示环境）');
+        }
+      });
+    });
+  });
+
+  /* ---------- 5. 复制链接 ---------- */
+  function copyText(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        toast('已复制到剪贴板');
+      }).catch(function(){
+        toast('复制失败，请手动选择文本复制');
+      });
+    }else{
+      try{
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        toast('已复制到剪贴板');
+      }catch(err){
+        toast('复制失败，请手动选择文本复制');
+      }
+    }
+  }
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.yb-js-copy');
+    if(!btn) return;
+    var txt = btn.getAttribute('data-yb-copy') || '51爆料大赛官方网站 · 焦点作品';
+    btn.classList.add('yb-copied');
+    setTimeout(function(){ btn.classList.remove('yb-copied'); }, 1200);
+    copyText(txt);
+  });
+
+  /* ---------- 作者信息弹窗 ---------- */
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.yb-js-author');
+    if(!btn) return;
+    var name = btn.getAttribute('data-yb-author') || '创作者';
+    var map = {
+      '陈叙':{f:'城市探索 · 行业观察',n:186,s:'42.8万',d:'前纸媒深度报道记者，八年现场采访经验。习惯先做三周资料核对再开机，作品以信息密度高、结构清晰著称。'},
+      '林小满':{f:'在地文化 · 日常记录',n:142,s:'31.6万',d:'长期拍摄街区与手艺人日常的记录者，坚持自费走访，用三年时间积累了一条街的完整影像档案。'},
+      '周见山':{f:'教程干货 · 创作幕后',n:208,s:'28.9万',d:'做过五年商业剪辑的影像教学博主，每个教程都附完整项目文件与参数说明，是新手创作者的常用参考。'},
+      '许一禾':{f:'美食烹饪 · 生活方式',n:97,s:'22.4万',d:'从社区食堂走出来的创作者，擅长以厨房为切口观察社区关系，作品保留大量现场原声。'},
+      '顾长川':{f:'人物访谈 · 文化访谈',n:78,s:'19.7万',d:'习惯用长镜头和长问题做访谈，不剪辑受访者的迟疑，关注行业转型中的个体选择。'},
+      '黎知夏':{f:'科技前沿 · 深度测评',n:63,s:'15.3万',d:'设备极简主义者，作品多为单机位实拍加数据实测，强调结论可复现，常驻新人榜前三。'}
+    };
+    var info = map[name] || {f:'多元内容方向',n:0,s:'—',d:'51爆料大赛 平台签约创作者。'};
+    openModal(
+      '<h3 id="yb-modal-title">' + name + '<span style="font-size:12px;font-weight:700;color:#8a6400;background:#ffc233;border-radius:5px;padding:2px 8px;margin-left:8px;vertical-align:middle">签约作者</span></h3>' +
+      '<p class="yb-modal-sub">擅长领域：' + info.f + '　|　作品 ' + info.n + ' 条　|　粉丝 ' + info.s + '</p>' +
+      '<p style="font-size:14px;color:#35475f;line-height:1.8">' + info.d + '</p>' +
+      '<div class="yb-modal-actions">' +
+        '<button class="yb-action" type="button" id="yb-m-author-close">关闭</button>' +
+        '<button class="yb-btn-primary" type="button" id="yb-m-author-follow">关注该作者</button>' +
+      '</div>'
+    );
+    document.getElementById('yb-m-author-close').addEventListener('click', closeModal);
+    document.getElementById('yb-m-author-follow').addEventListener('click', function(){
+      closeModal();
+      toast('已关注 ' + name + '，新作品上线时会提醒你');
+    });
+  });
+
+  /* ---------- 评论弹窗 ---------- */
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.yb-js-comment');
+    if(!btn) return;
+    openModal(
+      '<h3 id="yb-modal-title">写下你的评价</h3>' +
+      '<p class="yb-modal-sub">真实、具体的反馈会帮助创作者做得更好。请勿包含个人隐私信息。</p>' +
+      '<label for="yb-m-score">评分</label>' +
+      '<select id="yb-m-score"><option>5 分 · 非常推荐</option><option>4 分 · 值得一看</option><option>3 分 · 中规中矩</option><option>2 分 · 有待改进</option><option>1 分 · 不推荐</option></select>' +
+      '<label for="yb-m-comment">评价内容</label>' +
+      '<textarea id="yb-m-comment" placeholder="例如：作品的核对过程很完整，但后半段节奏稍慢。"></textarea>' +
+      '<div class="yb-modal-actions">' +
+        '<button class="yb-action" type="button" id="yb-m-c-cancel">取消</button>' +
+        '<button class="yb-btn-primary" type="button" id="yb-m-c-ok">发布评价</button>' +
+      '</div>'
+    );
+    document.getElementById('yb-m-c-cancel').addEventListener('click', closeModal);
+    document.getElementById('yb-m-c-ok').addEventListener('click', function(){
+      var txt = document.getElementById('yb-m-comment').value.trim();
+      if(txt.length < 5){
+        toast('评价内容请不少于 5 个字');
+        return;
+      }
+      closeModal();
+      toast('评价已发布，感谢你为社区补充视角');
+    });
+  });
+
+  /* ---------- 6. 数字滚动 ---------- */
+  var counters = Array.prototype.slice.call(document.querySelectorAll('[data-yb-count]'));
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-yb-count'), 10) || 0;
+    var suffix = el.querySelector('small') ? el.querySelector('small').outerHTML : '';
+    var start = null;
+    var dur = 1400;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = Math.floor(target * eased);
+      el.innerHTML = val.toLocaleString('en-US') + suffix;
+      if(p < 1) requestAnimationFrame(step);
+      else el.innerHTML = target.toLocaleString('en-US') + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+  if(counters.length && 'IntersectionObserver' in window){
+    var co = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          animateCount(en.target);
+          co.unobserve(en.target);
+        }
+      });
+    }, {threshold:.4});
+    counters.forEach(function(c){ co.observe(c); });
+  }else{
+    counters.forEach(function(c){
+      var t = parseInt(c.getAttribute('data-yb-count'),10) || 0;
+      var s = c.querySelector('small') ? c.querySelector('small').outerHTML : '';
+      c.innerHTML = t.toLocaleString('en-US') + s;
+    });
+  }
+
+  /* ---------- 7. 回到顶部 ---------- */
+  var topBtn = document.getElementById('yb-top-btn');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520) topBtn.classList.add('yb-show');
+    else topBtn.classList.remove('yb-show');
+  }, {passive:true});
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+})();
+</script>
+</body>
+                                                                                              </html>
